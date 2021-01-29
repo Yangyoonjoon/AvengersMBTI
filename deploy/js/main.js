@@ -4,7 +4,8 @@ const RIGHT_CN = "right",
   NONE_CN = "none",
   TEST_END_CN = "test-end",
   BTN_HOVER_CN = "button-hover",
-  OPACITY0_CN = "opacity-0";
+  OPACITY0_CN = "opacity-0",
+  MOBILE_CN = "mobile";
 
 // 문제 번호
 let num = 1;
@@ -14,6 +15,7 @@ function start() {
   $(".start").addClass(NONE_CN);
   $(".question").removeClass(NONE_CN);
   $(".progress").removeClass(NONE_CN);
+  $("#question-ad").removeClass(NONE_CN);
   next();
 }
 
@@ -56,17 +58,19 @@ function next() {
     $("#TF").val() < 2 ? (mbti += "F") : (mbti += "T");
     $("#JP").val() < 2 ? (mbti += "P") : (mbti += "J");
 
+    // 결과 출력
+    $("#img").attr("src", result[mbti]["img"]);
+    $("#img").attr("alt", result[mbti]["avenger"]);
+    $("#avenger").html(result[mbti]["avenger"]);
+    $("#explain").html(result[mbti]["explain"]);
+    $("#good-img").attr("src", result[mbti]["good_img"]);
+    $("#bad-img").attr("src", result[mbti]["bad_img"]);
+
     setTimeout(() => {
       $(".loading").addClass(NONE_CN);
       $(".result").removeClass(NONE_CN);
       $(".wrapper").addClass("fit-content");
-      // 결과 출력
-      $("#img").attr("src", result[mbti]["img"]);
-      $("#avenger").html(result[mbti]["avenger"]);
-      $("#explain").html(result[mbti]["explain"]);
-      $("#good-img").attr("src", result[mbti]["good_img"]);
-      $("#bad-img").attr("src", result[mbti]["bad_img"]);
-    }, 2000);
+    }, 2800);
   } else {
     $(".progress-bar").attr("style", `width: calc(100 / 12 * ${num}%)`);
     $(".progress-bar").html(`${num}/12`);
@@ -95,13 +99,25 @@ function next() {
   }
 }
 
+// 댓글 달기 버튼을 눌렀을때
+$("#chat_btn").click(() => {
+  const chat = document.querySelector("#chat");
+  const location = chat.offsetTop;
+  scrollTo({ top: location, behavior: "smooth" });
+});
+
+// 다시하기 버튼을 눌렀을때
+$("#retry").click(() => {
+  location.reload();
+});
+
 // 모바일인지 확인하는 함수
 function isMobile() {
   const UserAgent = navigator.userAgent;
 
   if (
     UserAgent.match(
-      /iPhone|iPod|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i
+      /iPhone|iPad|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i
     ) != null ||
     UserAgent.match(/LG|SAMSUNG|Samsung/) != null
   ) {
@@ -134,11 +150,13 @@ function init() {
   }, 500);
 
   if (!isMobile()) {
-    const btns = document.querySelectorAll("button");
+    const btns = document.querySelectorAll(".btn-hover");
     btns.forEach((btn) => {
       btn.addEventListener("mouseenter", handleEnter);
       btn.addEventListener("mouseleave", handleLeave);
     });
+  } else {
+    $(".wrapper").addClass(MOBILE_CN);
   }
 }
 

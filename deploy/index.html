@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>어벤져스 MBTI</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-JK7X3QL1LW"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-JK7X3QL1LW");
+    </script>
     <!-- bootstrap -->
     <link
       rel="stylesheet"
@@ -15,6 +26,36 @@
     <script src="js/data.js" defer></script>
     <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>어벤져스 MBTI</title>
+    <link rel="canonical" href="https://avengersmbti.netlify.app/" />
+    <meta
+      name="description"
+      content="내가 어벤져스 팀원이라면? 마블 히어로로 알아보는 나의 성향 테스트!"
+    />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="title" content="어벤져스 MBTI" />
+    <meta
+      name="subject"
+      content="내가 어벤져스 팀원이라면? 마블 히어로로 알아보는 나의 성향 테스트!"
+    />
+    <meta
+      name="keywords"
+      content="어벤져스 mbti, 어벤져스, 마블, mbti, 테스트, mbti 테스트, 어벤져스 엔드게임, 엔드게임, 어벤져스 테스트, 스칼렛위치, 스파이더맨, 비전, 로키, 닥터스트레인지, 타노스, 헐크, 아이언맨, 블랙팬서, 토르, 블랙위도우, 스타로드, 캡틴아메리카, 앤트맨, 호크아이, 캡틴마블"
+    />
+    <meta name="author" content="YYJ" />
+    <meta property="og:url" content="https://seatpicker.netlify.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="어벤져스 MBTI" />
+    <meta
+      property="og:description"
+      content="내가 어벤져스 팀원이라면? 마블 히어로로 알아보는 나의 성향 테스트!"
+    />
+    <meta property="og:image" content="img/로고.png" />
   </head>
 
   <body>
@@ -25,13 +66,25 @@
     <div class="wrapper">
       <article class="start">
         <h1>어벤져스 MBTI</h1>
-        <button type="button" onclick="start()">테스트 시작하기</button>
+        <h2>엔드게임</h2>
+        <button type="button" onclick="start()" class="btn-hover">
+          테스트 시작하기
+        </button>
       </article>
 
       <div class="bottom">
         <div class="audio none">
           <h3>배경음악을 듣고싶다면</h3>
           <audio controls src="audio/어벤져스.mp3"></audio>
+          <div class="ad_banner none" id="question-ad">
+            <ins
+              class="kakao_ad_area"
+              style="display: none"
+              data-ad-unit="DAN-nG9gvvBdAQD9CUmc"
+              data-ad-width="320"
+              data-ad-height="100"
+            ></ins>
+          </div>
         </div>
       </div>
 
@@ -48,8 +101,8 @@
           <span>문제</span>
         </h2>
         <input id="type" type="hidden" value="EI" />
-        <button id="A" type="button">대답1</button>
-        <button id="B" type="button">대답2</button>
+        <button id="A" type="button" class="btn-hover">대답1</button>
+        <button id="B" type="button" class="btn-hover">대답2</button>
       </article>
 
       <article class="loading none">
@@ -60,21 +113,61 @@
         <img id="img" src="img/로고.png" alt="avenger" />
         <h2 id="avenger"></h2>
         <h3 id="explain"></h3>
+        <div class="ad_banner">
+          <ins
+            class="kakao_ad_area"
+            style="display: none"
+            data-ad-unit="DAN-nLWrZOx76hyJm9er"
+            data-ad-width="320"
+            data-ad-height="100"
+          ></ins>
+        </div>
+        <h3>성향에 따라 2인조 팀을 만든다면</h3>
         <div class="good-bad">
           <div class="good">
             <h4>최고의 팀원</h4>
-            <img src="img/로고.png" alt="avenger" id="good-img" />
+            <img src="img/로고.png" alt="최고의 팀원" id="good-img" />
           </div>
           <div class="bad">
             <h4>최악의 팀원</h4>
-            <img src="img/로고.png" alt="avenger" id="bad-img" />
+            <img src="img/로고.png" alt="최악의 팀원" id="bad-img" />
           </div>
         </div>
 
+        <button id="chat_btn">댓글 달기</button>
+
+        <div class="ad_banner">
+          <ins
+            class="kakao_ad_area"
+            style="display: none"
+            data-ad-unit="DAN-GKriXIgGyjBJ2Rwo"
+            data-ad-width="300"
+            data-ad-height="250"
+          ></ins>
+        </div>
+
         <!-- Go to www.addthis.com/dashboard to customize your tools -->
-        <h3>공유하기</h3>
-        <div class="share addthis_inline_share_toolbox"></div>
-        <button class="retry">다시하기</button>
+        <div class="share">
+          <h2>공유하기</h2>
+          <div class="addthis_inline_share_toolbox"></div>
+        </div>
+
+        <button id="retry">다시하기</button>
+
+        <div class="ad_banner">
+          <ins
+            class="kakao_ad_area"
+            style="display: none"
+            data-ad-unit="DAN-7PK37qtSksP1DP4d"
+            data-ad-width="300"
+            data-ad-height="250"
+          ></ins>
+        </div>
+
+        <div id="chat">
+          <h2 class="chat_title">댓글</h2>
+          <div id="disqus_thread"></div>
+        </div>
       </article>
 
       <input type="hidden" id="EI" value="0" />
@@ -82,6 +175,13 @@
       <input type="hidden" id="TF" value="0" />
       <input type="hidden" id="JP" value="0" />
     </div>
+
+    <!-- kakao adfit -->
+    <script
+      type="text/javascript"
+      src="//t1.daumcdn.net/kas/static/ba.min.js"
+      async
+    ></script>
 
     <!-- jquery -->
     <script
@@ -94,6 +194,33 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
+
+    <!-- disqus -->
+    <script>
+      /**
+       *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+       *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+      /*
+      var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+      */
+      (function () {
+        // DON'T EDIT BELOW THIS LINE
+        var d = document,
+          s = d.createElement("script");
+        s.src = "https://avengersmbti.disqus.com/embed.js";
+        s.setAttribute("data-timestamp", +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript
+      >Please enable JavaScript to view the
+      <a href="https://disqus.com/?ref_noscript"
+        >comments powered by Disqus.</a
+      ></noscript
+    >
 
     <!-- addthis -->
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
