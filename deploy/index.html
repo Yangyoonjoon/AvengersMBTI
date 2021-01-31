@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -15,18 +23,6 @@
 
       gtag("config", "G-JK7X3QL1LW");
     </script>
-    <!-- bootstrap -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
-      crossorigin="anonymous"
-    />
-    <!-- my files -->
-    <script src="js/data.js" defer></script>
-    <script src="js/main.js" defer></script>
-    <link rel="stylesheet" href="style.css" />
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>어벤져스 MBTI</title>
@@ -45,10 +41,10 @@
     />
     <meta
       name="keywords"
-      content="어벤져스 mbti, 어벤져스, 마블, mbti, 테스트, mbti 테스트, 어벤져스 엔드게임, 엔드게임, 어벤져스 테스트, 스칼렛위치, 스파이더맨, 비전, 로키, 닥터스트레인지, 타노스, 헐크, 아이언맨, 블랙팬서, 토르, 블랙위도우, 스타로드, 캡틴아메리카, 앤트맨, 호크아이, 캡틴마블"
+      content="어벤져스 mbti, 어벤져스, 마블, 어벤져스 테스트, mbti, 테스트, mbti 테스트, 어벤져스 엔드게임, 엔드게임, avengers test, avengers mbti, avengers, avengers endgame, endgame, 스칼렛위치, 스파이더맨, 비전, 로키, 닥터스트레인지, 타노스, 헐크, 아이언맨, 블랙팬서, 토르, 블랙위도우, 스타로드, 캡틴아메리카, 앤트맨, 호크아이, 캡틴마블, 어벤져스 인피니티 워, 인피니티 워, 어벤져스 등장인물, 어벤져스 시리즈 순서"
     />
-    <meta name="author" content="YYJ" />
-    <meta property="og:url" content="https://seatpicker.netlify.app/" />
+    <meta name="author" content="Yangyoonjoon" />
+    <meta property="og:url" content="https://avengersmbti.netlify.app/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="어벤져스 MBTI" />
     <meta
@@ -57,13 +53,12 @@
     />
     <meta property="og:image" content="img/로고.png" />
   </head>
-
   <body>
     <div class="logo-bg">
       <img class="logo opacity-0" src="img/로고.png" alt="avengers logo" />
     </div>
 
-    <div class="wrapper">
+    <div class="wrapper none">
       <article class="start">
         <h1>어벤져스 MBTI</h1>
         <h2>엔드게임</h2>
@@ -75,7 +70,10 @@
       <div class="bottom">
         <div class="audio none">
           <h3>배경음악을 듣고싶다면</h3>
-          <audio controls src="audio/어벤져스.mp3"></audio>
+          <audio
+            controls
+            src="https://avengersmbti-files.netlify.app/어벤져스.mp3"
+          ></audio>
           <div class="ad_banner none" id="question-ad">
             <ins
               class="kakao_ad_area"
@@ -134,7 +132,7 @@
           </div>
         </div>
 
-        <button id="chat_btn">댓글 달기</button>
+        <button id="chat_btn">결과를 댓글로 공유해보세요!</button>
 
         <div class="ad_banner">
           <ins
@@ -164,6 +162,22 @@
           ></ins>
         </div>
 
+        <div class="jocoding">
+          <h4>이런 사이트를 만들고 싶다면</h4>
+          <h2>
+            <a
+              href="https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg?utm_source=avengersmbti&utm_medium=cpc"
+              target="_blank"
+              ><img
+                src="img/youtube.png"
+                alt="유튜브 아이콘"
+                class="youtube-icon"
+              />
+              조코딩 유튜브!</a
+            >
+          </h2>
+        </div>
+
         <div id="chat">
           <h2 class="chat_title">댓글</h2>
           <div id="disqus_thread"></div>
@@ -176,13 +190,6 @@
       <input type="hidden" id="JP" value="0" />
     </div>
 
-    <!-- kakao adfit -->
-    <script
-      type="text/javascript"
-      src="//t1.daumcdn.net/kas/static/ba.min.js"
-      async
-    ></script>
-
     <!-- jquery -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -194,7 +201,15 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
-
+    <!-- my scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <!-- kakao adfit -->
+    <script
+      type="text/javascript"
+      src="//t1.daumcdn.net/kas/static/ba.min.js"
+      async
+    ></script>
     <!-- disqus -->
     <script>
       /**
@@ -221,7 +236,6 @@
         >comments powered by Disqus.</a
       ></noscript
     >
-
     <!-- addthis -->
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script

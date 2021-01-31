@@ -59,13 +59,23 @@ function next() {
     $("#JP").val() < 2 ? (mbti += "P") : (mbti += "J");
 
     // 결과 출력
-    $("#img").attr("src", result[mbti]["img"]);
+    $("#img").attr(
+      "src",
+      `https://avengersmbti-files.netlify.app/${result[mbti]["img"]}`
+    );
     $("#img").attr("alt", result[mbti]["avenger"]);
     $("#avenger").html(result[mbti]["avenger"]);
     $("#explain").html(result[mbti]["explain"]);
-    $("#good-img").attr("src", result[mbti]["good_img"]);
-    $("#bad-img").attr("src", result[mbti]["bad_img"]);
+    $("#good-img").attr(
+      "src",
+      `https://avengersmbti-files.netlify.app/${result[mbti]["good_img"]}`
+    );
+    $("#bad-img").attr(
+      "src",
+      `https://avengersmbti-files.netlify.app/${result[mbti]["bad_img"]}`
+    );
 
+    // 로딩
     setTimeout(() => {
       $(".loading").addClass(NONE_CN);
       $(".result").removeClass(NONE_CN);
@@ -138,16 +148,18 @@ function handleLeave(event) {
 }
 
 function init() {
+  // 첫 화면
   setTimeout(() => {
     $(".logo").removeClass(OPACITY0_CN);
+    $(".wrapper").removeClass(NONE_CN);
     setTimeout(() => {
       $(".logo-bg").addClass(OPACITY0_CN);
       setTimeout(() => {
         $(".audio").removeClass(NONE_CN);
         $(".logo-bg").addClass(NONE_CN);
-      }, 600);
-    }, 500);
-  }, 500);
+      }, 500);
+    }, 700);
+  }, 700);
 
   if (!isMobile()) {
     const btns = document.querySelectorAll(".btn-hover");

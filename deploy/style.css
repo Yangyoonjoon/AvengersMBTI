@@ -1,3 +1,14 @@
+.wrapper {
+  width: 500px;
+  height: 100vh;
+  background-image: url("img/어벤져스.jpg");
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+  box-shadow: 0 0 20px 3px var(--effect-color);
+  padding: 0 15px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -161,17 +172,6 @@ article {
   margin-top: 30px;
 }
 
-.wrapper {
-  width: 500px;
-  height: 100vh;
-  background-image: url("img/어벤져스.jpg");
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  box-shadow: 0 0 20px 3px var(--effect-color);
-  padding: 0 15px;
-}
-
 /* disqus */
 
 #chat {
@@ -196,6 +196,28 @@ article {
   width: 320px;
   margin: 0 auto;
   margin-top: 10px;
+}
+
+.jocoding h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.jocoding {
+  margin-top: 20px;
+}
+
+.jocoding h2 a {
+  color: var(--dark-color);
+}
+
+.jocoding h2 a:hover {
+  text-decoration: none;
+}
+
+.youtube-icon {
+  width: 40px;
 }
 
 /* js class */
@@ -310,7 +332,7 @@ button:active {
     font-size: 30px;
     height: 180px;
   }
-  button {
+  .btn-hover {
     font-size: 30px;
     height: 130px;
   }
@@ -343,7 +365,7 @@ button:active {
     font-size: 60px;
     height: 300px;
   }
-  button {
+  .btn-hover {
     font-size: 60px;
     height: 250px;
   }
