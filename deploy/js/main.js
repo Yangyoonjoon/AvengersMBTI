@@ -7,6 +7,8 @@ const RIGHT_CN = "right",
   OPACITY0_CN = "opacity-0",
   MOBILE_CN = "mobile";
 
+let isMoving = false;
+
 // 문제 번호
 let num = 1;
 
@@ -21,15 +23,19 @@ function start() {
 
 // A 버튼을 눌렀을때
 $("#A").click(() => {
-  let type = $("#type").val();
-  let preValue = $("#" + type).val();
-  $("#" + type).val(parseInt(preValue) + 1);
-  next();
+  if (!isMoving) {
+    let type = $("#type").val();
+    let preValue = $("#" + type).val();
+    $("#" + type).val(parseInt(preValue) + 1);
+    next();
+  }
 });
 
 // B 버튼을 눌렀을때
 $("#B").click(() => {
-  next();
+  if (!isMoving) {
+    next();
+  }
 });
 
 function changeQuestion() {
@@ -75,6 +81,15 @@ function next() {
       `https://avengersmbti-files.netlify.app/${result[mbti]["bad_img"]}`
     );
 
+    $("#seatpicker-img1").attr(
+      "src",
+      "https://avengersmbti-files.netlify.app/seatpicker-img1.jpg"
+    );
+    $("#seatpicker-img2").attr(
+      "src",
+      "https://avengersmbti-files.netlify.app/seatpicker-img2.jpg"
+    );
+
     // 로딩
     setTimeout(() => {
       $(".loading").addClass(NONE_CN);
@@ -82,6 +97,7 @@ function next() {
       $(".wrapper").addClass("fit-content");
     }, 2800);
   } else {
+    isMoving = true;
     $(".progress-bar").attr("style", `width: calc(100 / 12 * ${num}%)`);
     $(".progress-bar").html(`${num}/12`);
 
@@ -90,6 +106,7 @@ function next() {
       changeQuestion();
       setTimeout(() => {
         $(".question").removeClass(RIGHT_CN);
+        isMoving = false;
       }, 300);
     } else {
       $(".question").addClass(LEFT_CN);
@@ -102,6 +119,7 @@ function next() {
           $(".question").removeClass(NONE_CN);
           setTimeout(() => {
             $(".question").removeClass(RIGHT_CN);
+            isMoving = false;
           }, 100);
         }, 100);
       }, 300);

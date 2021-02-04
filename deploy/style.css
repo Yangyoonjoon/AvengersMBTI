@@ -175,7 +175,7 @@ article {
 /* disqus */
 
 #chat {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
 #disqus_thread {
@@ -205,19 +205,34 @@ article {
 }
 
 .jocoding {
-  margin-top: 20px;
+  margin-top: 25px;
 }
 
-.jocoding h2 a {
+a {
   color: var(--dark-color);
 }
 
-.jocoding h2 a:hover {
+a:hover {
+  color: var(--dark-color);
   text-decoration: none;
 }
 
 .youtube-icon {
   width: 40px;
+}
+
+.seatpicker {
+  margin-top: 25px;
+}
+
+.seatpicker img {
+  width: 95%;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 /* js class */
@@ -248,7 +263,7 @@ article {
 }
 
 .mobile {
-  width: 100%;
+  width: 800px;
 }
 
 /* button */
@@ -294,6 +309,36 @@ button:active {
 }
 
 /* media query */
+
+@media (max-height: 610px) {
+  #title {
+    font-size: 18px !important;
+    height: 110px;
+  }
+  #A,
+  #B {
+    font-size: 16px;
+    height: 90px;
+    padding: 0 10px;
+    margin-top: 5px;
+  }
+  .audio h3 {
+    font-size: 20px;
+  }
+  audio {
+    zoom: 0.8;
+  }
+}
+
+@media (max-width: 359px) {
+  .wrapper {
+    padding: 0;
+  }
+  .good,
+  .bad {
+    margin: 0 5px;
+  }
+}
 
 @media (max-width: 500px) {
   .bottom {
