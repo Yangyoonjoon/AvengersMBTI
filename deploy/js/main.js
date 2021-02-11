@@ -7,10 +7,31 @@ const RIGHT_CN = "right",
   OPACITY0_CN = "opacity-0",
   MOBILE_CN = "mobile";
 
+// 문제가 이동 중 인지
 let isMoving = false;
 
 // 문제 번호
 let num = 1;
+
+// mbti 리스트
+const MBTI = [
+  "INFP",
+  "ENFP",
+  "INFJ",
+  "ENFJ",
+  "INTJ",
+  "ENTJ",
+  "INTP",
+  "ENTP",
+  "ISFP",
+  "ESFP",
+  "ISTP",
+  "ESTP",
+  "ISFJ",
+  "ESFJ",
+  "ISTJ",
+  "ESTJ",
+];
 
 // 시작 버튼을 눌렀을때
 function start() {
@@ -38,8 +59,8 @@ $("#B").click(() => {
   }
 });
 
+// 문제 교체하는 함수
 function changeQuestion() {
-  // 문제 교체
   $("#title").html(q[num]["title"]);
   $("#type").val(q[num]["type"]);
   $("#A").html(q[num]["A"]);
@@ -65,37 +86,10 @@ function next() {
     $("#JP").val() < 2 ? (mbti += "P") : (mbti += "J");
 
     // 결과 출력
-    $("#img").attr(
-      "src",
-      `https://avengersmbti-files.netlify.app/${result[mbti]["img"]}`
-    );
-    $("#img").attr("alt", result[mbti]["avenger"]);
-    $("#avenger").html(result[mbti]["avenger"]);
-    $("#explain").html(result[mbti]["explain"]);
-    $("#good-img").attr(
-      "src",
-      `https://avengersmbti-files.netlify.app/${result[mbti]["good_img"]}`
-    );
-    $("#bad-img").attr(
-      "src",
-      `https://avengersmbti-files.netlify.app/${result[mbti]["bad_img"]}`
-    );
-
-    $("#seatpicker-img1").attr(
-      "src",
-      "https://avengersmbti-files.netlify.app/seatpicker-img1.jpg"
-    );
-    $("#seatpicker-img2").attr(
-      "src",
-      "https://avengersmbti-files.netlify.app/seatpicker-img2.jpg"
-    );
+    paintResult(mbti);
 
     // 로딩
-    setTimeout(() => {
-      $(".loading").addClass(NONE_CN);
-      $(".result").removeClass(NONE_CN);
-      $(".wrapper").addClass("fit-content");
-    }, 2800);
+    loading();
   } else {
     isMoving = true;
     $(".progress-bar").attr("style", `width: calc(100 / 12 * ${num}%)`);
@@ -127,11 +121,125 @@ function next() {
   }
 }
 
+// 결과 사진을 불러올 동안 로딩
+function loading() {
+  setTimeout(() => {
+    $(".loading").addClass(NONE_CN);
+    $(".result").removeClass(NONE_CN);
+    $(".wrapper").addClass("fit-content");
+  }, 1800);
+}
+
+// 결과를 출력하는 함수
+function paintResult(mbti) {
+  $("#img").attr(
+    "src",
+    `https://avengersmbti-files.netlify.app/${result[mbti]["img"]}`
+  );
+  $("#img").attr("alt", result[mbti]["avenger"]);
+  $("#avenger").html(result[mbti]["avenger"]);
+  $("#explain").html(result[mbti]["explain"]);
+
+  $("#good-img").attr(
+    "src",
+    `https://avengersmbti-files.netlify.app/${result[mbti]["good_img"]}`
+  );
+  $("#bad-img").attr(
+    "src",
+    `https://avengersmbti-files.netlify.app/${result[mbti]["bad_img"]}`
+  );
+  $("#good-img").attr("alt", result[mbti]["good"]);
+  $("#bad-img").attr("alt", result[mbti]["bad"]);
+  $("#good-img").removeClass();
+  $("#bad-img").removeClass();
+  $("#good-img").addClass(result[mbti]["good_mbti"]);
+  $("#bad-img").addClass(result[mbti]["bad_mbti"]);
+
+  // seatpicker
+  $("#seatpicker-img1").attr(
+    "src",
+    "https://avengersmbti-files.netlify.app/seatpicker-img1.jpg"
+  );
+  $("#seatpicker-img2").attr(
+    "src",
+    "https://avengersmbti-files.netlify.app/seatpicker-img2.jpg"
+  );
+}
+
+// avenger 페이지 변경 함수
+function changeAvenger(mbti) {
+  $(".result").addClass(NONE_CN);
+  $(".loading").removeClass(NONE_CN);
+  $(".wrapper").removeClass("fit-content");
+  paintResult(mbti);
+
+  // 로딩
+  loading();
+}
+
+// 최고의 팀원 이미지 클릭
+$("#good-img").click(() => {
+  const img = document.querySelector("#good-img");
+  const mbti = img.className;
+  changeAvenger(mbti);
+});
+
+// 최악의 팀원 이미지 클릭
+$("#bad-img").click(() => {
+  const img = document.querySelector("#bad-img");
+  const mbti = img.className;
+  changeAvenger(mbti);
+});
+
 // 댓글 달기 버튼을 눌렀을때
 $("#chat_btn").click(() => {
   const chat = document.querySelector("#chat");
   const location = chat.offsetTop;
   scrollTo({ top: location, behavior: "smooth" });
+});
+
+// 모든 캐릭터 보기 버튼을 눌렀을때
+$("#avengers_btn").click(() => {
+  $(".result").addClass(NONE_CN);
+  $(".loading").removeClass(NONE_CN);
+  $(".wrapper").removeClass("fit-content");
+
+  const avengers = document.querySelector(".avengers");
+
+  // 자식 요소 모두 삭제
+  while (avengers.hasChildNodes()) {
+    avengers.removeChild(avengers.firstChild);
+  }
+
+  // 반복 하면서 모든 캐릭터 생성
+  for (let i = 0; i < MBTI.length; i++) {
+    const div = document.createElement("div");
+    const name = document.createElement("h4");
+    const img = document.createElement("img");
+
+    name.innerText = result[MBTI[i]]["avenger"];
+
+    img.className = MBTI[i];
+    img.src = `https://avengersmbti-files.netlify.app/${
+      result[MBTI[i]]["img"]
+    }`;
+    img.alt = result[MBTI[i]]["avenger"];
+    img.addEventListener("click", (event) => {
+      avengers.classList.add(NONE_CN);
+      const mbti = event.target.className;
+      changeAvenger(mbti);
+    });
+
+    div.appendChild(name);
+    div.appendChild(img);
+    avengers.appendChild(div);
+  }
+
+  setTimeout(() => {
+    $(".loading").addClass(NONE_CN);
+    avengers.classList.remove(NONE_CN);
+    $(".wrapper").addClass("fit-content");
+  }, 2800);
 });
 
 // 다시하기 버튼을 눌렀을때
@@ -166,7 +274,7 @@ function handleLeave(event) {
 }
 
 function init() {
-  // 첫 화면
+  // 첫 화면 로딩
   setTimeout(() => {
     $(".logo").removeClass(OPACITY0_CN);
     $(".wrapper").removeClass(NONE_CN);
