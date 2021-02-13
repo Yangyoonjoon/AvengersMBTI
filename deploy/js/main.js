@@ -126,8 +126,9 @@ function loading() {
   setTimeout(() => {
     $(".loading").addClass(NONE_CN);
     $(".result").removeClass(NONE_CN);
+    $(".result-main").removeClass(NONE_CN);
     $(".wrapper").addClass("fit-content");
-  }, 1800);
+  }, 2800);
 }
 
 // 결과를 출력하는 함수
@@ -200,7 +201,7 @@ $("#chat_btn").click(() => {
 
 // 모든 캐릭터 보기 버튼을 눌렀을때
 $("#avengers_btn").click(() => {
-  $(".result").addClass(NONE_CN);
+  $(".result-main").addClass(NONE_CN);
   $(".loading").removeClass(NONE_CN);
   $(".wrapper").removeClass("fit-content");
 
@@ -235,11 +236,12 @@ $("#avengers_btn").click(() => {
     avengers.appendChild(div);
   }
 
+  // 모든 캐릭터 사진을 가져올 동안 로딩
   setTimeout(() => {
     $(".loading").addClass(NONE_CN);
     avengers.classList.remove(NONE_CN);
     $(".wrapper").addClass("fit-content");
-  }, 2800);
+  }, 4800);
 });
 
 // 다시하기 버튼을 눌렀을때

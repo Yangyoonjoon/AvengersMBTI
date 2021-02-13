@@ -21,6 +21,22 @@ body {
   color: var(--base-color);
 }
 
+article {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: all 0.6s;
+}
+
+a {
+  color: var(--point-color);
+}
+
+a:hover {
+  color: var(--point-color);
+  text-decoration: none;
+}
+
 @font-face {
   font-family: "Cafe24Ohsquare";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff")
@@ -32,14 +48,16 @@ body {
 /* :root {
   --base-color: rgba(51, 51, 51, 0.9);
   --effect-color: rgb(241, 242, 246, 0.9);
-  --dark-color: #b33939;
+  --point-color: rgb(179, 57, 57);
 } */
 
 :root {
   --base-color: rgba(241, 242, 246, 0.9);
   --effect-color: rgba(51, 51, 51, 0.9);
-  --dark-color: #b33939;
+  --point-color: rgb(179, 57, 57);
 }
+
+/* first loading */
 
 .logo-bg {
   position: absolute;
@@ -74,12 +92,7 @@ audio:focus {
   outline: none;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  transition: all 0.6s;
-}
+/* question page */
 
 .bottom {
   position: absolute;
@@ -88,6 +101,37 @@ article {
   width: 500px;
   height: 33vh;
   background-color: rgba(0, 0, 0, 0);
+}
+
+.start h1 {
+  font-size: 60px;
+  transition: all 0.4s;
+  margin-top: 30px;
+}
+
+.progress-bar {
+  background-color: var(--effect-color);
+}
+
+.progress {
+  height: 20px;
+  margin: 10px 0;
+  background-color: var(--point-color);
+}
+
+/* result page */
+
+#title {
+  width: 100%;
+  height: 130px;
+  background-color: var(--effect-color);
+  border-radius: 4px;
+  border: 2px solid var(--base-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  padding: 0 5px;
 }
 
 #img {
@@ -124,7 +168,7 @@ article {
 .bad {
   display: flex;
   flex-direction: column;
-  margin: 0 20px;
+  margin: 0 15px;
 }
 
 #good-img,
@@ -136,29 +180,6 @@ article {
   cursor: pointer;
 }
 
-.progress-bar {
-  background-color: var(--effect-color);
-}
-
-.progress {
-  height: 20px;
-  margin: 10px 0;
-  background-color: var(--dark-color);
-}
-
-#title {
-  width: 100%;
-  height: 130px;
-  background-color: var(--effect-color);
-  border-radius: 4px;
-  border: 2px solid var(--base-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 22px;
-  padding: 0 5px;
-}
-
 .result {
   color: var(--base-color);
 }
@@ -167,11 +188,7 @@ article {
   margin: 20px 0;
 }
 
-.start h1 {
-  font-size: 60px;
-  transition: all 0.4s;
-  margin-top: 30px;
-}
+/* all character page */
 
 .avengers {
   display: grid;
@@ -224,15 +241,6 @@ article {
 
 .jocoding {
   margin-top: 25px;
-}
-
-a {
-  color: var(--dark-color);
-}
-
-a:hover {
-  color: var(--dark-color);
-  text-decoration: none;
 }
 
 .youtube-icon {
@@ -312,7 +320,7 @@ button {
 #chat_btn:active,
 #avengers_btn:active {
   color: var(--base-color);
-  background-color: var(--dark-color);
+  background-color: var(--point-color);
 }
 
 button:focus {
