@@ -40,6 +40,9 @@ function start() {
   $(".progress").removeClass(NONE_CN);
   $("#question-ad").removeClass(NONE_CN);
   next();
+
+  // 모든 캐릭터 보기 생성
+  loadAvengers();
 }
 
 // A 버튼을 눌렀을때
@@ -178,6 +181,35 @@ function changeAvenger(mbti) {
   loading();
 }
 
+// 모든 캐릭터 보기를 했을때 보여줄 화면을 생성하는 함수
+function loadAvengers() {
+  const avengers = document.querySelector(".avengers");
+
+  // 반복 하면서 모든 캐릭터 생성
+  for (let i = 0; i < MBTI.length; i++) {
+    const div = document.createElement("div");
+    const name = document.createElement("h4");
+    const img = document.createElement("img");
+
+    name.innerText = result[MBTI[i]]["avenger"];
+
+    img.className = MBTI[i];
+    img.src = `https://avengersmbti-files.netlify.app/${
+      result[MBTI[i]]["img"]
+    }`;
+    img.alt = result[MBTI[i]]["avenger"];
+    img.addEventListener("click", (event) => {
+      avengers.classList.add(NONE_CN);
+      const mbti = event.target.className;
+      changeAvenger(mbti);
+    });
+
+    div.appendChild(name);
+    div.appendChild(img);
+    avengers.appendChild(div);
+  }
+}
+
 // 최고의 팀원 이미지 클릭
 $("#good-img").click(() => {
   const img = document.querySelector("#good-img");
@@ -205,43 +237,12 @@ $("#avengers_btn").click(() => {
   $(".loading").removeClass(NONE_CN);
   $(".wrapper").removeClass("fit-content");
 
-  const avengers = document.querySelector(".avengers");
-
-  // 자식 요소 모두 삭제
-  while (avengers.hasChildNodes()) {
-    avengers.removeChild(avengers.firstChild);
-  }
-
-  // 반복 하면서 모든 캐릭터 생성
-  for (let i = 0; i < MBTI.length; i++) {
-    const div = document.createElement("div");
-    const name = document.createElement("h4");
-    const img = document.createElement("img");
-
-    name.innerText = result[MBTI[i]]["avenger"];
-
-    img.className = MBTI[i];
-    img.src = `https://avengersmbti-files.netlify.app/${
-      result[MBTI[i]]["img"]
-    }`;
-    img.alt = result[MBTI[i]]["avenger"];
-    img.addEventListener("click", (event) => {
-      avengers.classList.add(NONE_CN);
-      const mbti = event.target.className;
-      changeAvenger(mbti);
-    });
-
-    div.appendChild(name);
-    div.appendChild(img);
-    avengers.appendChild(div);
-  }
-
-  // 모든 캐릭터 사진을 가져올 동안 로딩
+  // 모든 캐릭터 보기 로딩
   setTimeout(() => {
     $(".loading").addClass(NONE_CN);
-    avengers.classList.remove(NONE_CN);
+    $(".avengers").removeClass(NONE_CN);
     $(".wrapper").addClass("fit-content");
-  }, 4800);
+  }, 2800);
 });
 
 // 다시하기 버튼을 눌렀을때
