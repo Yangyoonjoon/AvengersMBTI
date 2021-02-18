@@ -1,7 +1,7 @@
 .wrapper {
   width: 500px;
   height: 100vh;
-  background-image: url("img/어벤져스.jpg");
+  background-image: url("img/bg.jpg");
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -9,9 +9,12 @@
   padding: 0 15px;
 }
 
-body {
-  margin: 0;
+body,
+ul {
   padding: 0;
+}
+
+body {
   font-family: "Cafe24Ohsquare";
   overflow-x: hidden;
   overflow-y: auto;
@@ -35,6 +38,11 @@ a {
 a:hover {
   color: var(--point-color);
   text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  font-size: 18px;
 }
 
 @font-face {
@@ -207,6 +215,64 @@ audio:focus {
   cursor: pointer;
 }
 
+/* mission */
+
+#mission_btn {
+  background-color: var(--point-color);
+  color: var(--base-color);
+  animation: missionBtn 1.2s infinite;
+}
+
+#mission {
+  width: 450px;
+  height: 450px;
+  background-color: var(--base-color);
+  background-image: url("img/logo.png");
+  background-position: center;
+  background-size: cover;
+  color: var(--effect-color);
+  border-radius: 10px;
+  border: 2px solid var(--point-color);
+  padding: 40px 0;
+  position: fixed;
+  top: 10px;
+  left: calc((100% - 450px) / 2);
+  z-index: 1;
+  transition: all 0.4s;
+}
+
+/* mission animation */
+
+@keyframes missionBtn {
+  0% {
+    background-color: var(--point-color);
+    color: var(--base-color);
+  }
+  50% {
+    background-color: var(--base-color);
+    color: var(--effect-color);
+  }
+  0% {
+    background-color: var(--point-color);
+    color: var(--base-color);
+  }
+}
+
+@-webkit-keyframes missionBtn {
+  0% {
+    background-color: var(--point-color);
+    color: var(--base-color);
+  }
+  50% {
+    background-color: var(--base-color);
+    color: var(--effect-color);
+  }
+  0% {
+    background-color: var(--point-color);
+    color: var(--base-color);
+  }
+}
+
 /* disqus */
 
 #chat {
@@ -240,7 +306,7 @@ audio:focus {
 }
 
 .jocoding {
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 .youtube-icon {
@@ -248,11 +314,12 @@ audio:focus {
 }
 
 .seatpicker {
-  margin-top: 25px;
+  margin: 20px 0;
 }
 
 .seatpicker img {
   width: 95%;
+  max-width: 450px;
   margin-bottom: 10px;
   border-radius: 4px;
 }
@@ -301,14 +368,15 @@ button {
   color: var(--effect-color);
   border: 2px solid var(--effect-color);
   background-color: var(--base-color);
-  transition: all 0.4s;
+  transition: all 0.6s;
   height: 100px;
   margin-top: 15px;
 }
 
 #retry,
 #chat_btn,
-#avengers_btn {
+#avengers_btn,
+#mission_btn {
   width: 300px;
   height: 70px;
   margin: 10px auto;
@@ -316,8 +384,17 @@ button {
   border: none;
 }
 
+#chat_btn,
+#copy_btn {
+  width: 90%;
+  height: 50px;
+  border-radius: 6px;
+  margin-bottom: 0;
+  background-color: var(--effect-color);
+  color: var(--base-color);
+}
+
 #retry:active,
-#chat_btn:active,
 #avengers_btn:active {
   color: var(--base-color);
   background-color: var(--point-color);
@@ -387,11 +464,19 @@ button:active {
   .avengers div {
     margin: 10px auto;
   }
+  #mission {
+    width: 95%;
+    left: calc((100% - 95%) / 2);
+  }
 }
 
 @media (min-width: 500px) {
   .wrapper {
     width: 500px;
+  }
+  #mission {
+    width: 450px;
+    left: calc((100% - 450px) / 2);
   }
 }
 
@@ -402,6 +487,10 @@ button:active {
   }
   .wrapper {
     width: 40%;
+  }
+  #mission {
+    width: 35%;
+    left: calc((100% - 35%) / 2);
   }
 }
 

@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
+    <!-- <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-JK7X3QL1LW"
     ></script>
@@ -22,14 +22,14 @@
       gtag("js", new Date());
 
       gtag("config", "G-JK7X3QL1LW");
-    </script>
+    </script> -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>어벤져스 MBTI | 어벤져스 테스트</title>
     <link rel="canonical" href="https://avengersmbti.netlify.app/" />
     <meta
       name="description"
-      content="내가 어벤져스 팀원 중 한 명이라면? 마블 캐릭터로 알아보는 나의 성향 테스트! 다운로드X 회원가입X, PC 모바일 모두 가능"
+      content="내가 어벤져스 팀원 중 한 명이라면? 마블 캐릭터로 알아보는 나의 성향 테스트! 마블 mbti | 마블 테스트"
     />
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
@@ -37,11 +37,11 @@
     <meta name="title" content="어벤져스 MBTI | 어벤져스 테스트" />
     <meta
       name="subject"
-      content="내가 어벤져스 팀원 중 한 명이라면? 마블 캐릭터로 알아보는 나의 성향 테스트! 다운로드X 회원가입X, PC 모바일 모두 가능"
+      content="내가 어벤져스 팀원 중 한 명이라면? 마블 캐릭터로 알아보는 나의 성향 테스트! 마블 mbti | 마블 테스트"
     />
     <meta
       name="keywords"
-      content="어벤져스 mbti, 어벤져스, 마블, 어벤져스 테스트, mbti, 테스트, mbti 테스트, 심리 테스트, 성향 테스트, 어벤져스 엔드게임, 엔드게임, avengers test, avengers mbti, avengers, avengers endgame, endgame, 스칼렛위치, 스파이더맨, 비전, 로키, 닥터스트레인지, 타노스, 헐크, 아이언맨, 블랙팬서, 토르, 블랙위도우, 스타로드, 캡틴아메리카, 앤트맨, 호크아이, 캡틴마블, 어벤져스 인피니티 워, 인피니티 워, 어벤져스 등장인물, 어벤져스 시리즈 순서"
+      content="어벤져스 mbti, 어벤져스, 마블, 어벤져스 테스트, 마블 테스트, 마블 mbti, mbti, 테스트, mbti 테스트, 심리 테스트, 성향 테스트, 어벤져스 엔드게임, 엔드게임, avengers test, avengers mbti, avengers, 스칼렛위치, 스파이더맨, 비전, 로키, 닥터스트레인지, 타노스, 헐크, 아이언맨, 블랙팬서, 토르, 블랙위도우, 스타로드, 캡틴아메리카, 앤트맨, 호크아이, 캡틴마블, 어벤져스 인피니티 워, 인피니티 워, 어벤져스 등장인물, 어벤져스 시리즈 순서"
     />
     <meta name="author" content="Yangyoonjoon" />
     <meta property="og:url" content="https://avengersmbti.netlify.app/" />
@@ -49,13 +49,13 @@
     <meta property="og:title" content="어벤져스 MBTI | 어벤져스 테스트" />
     <meta
       property="og:description"
-      content="내가 어벤져스 팀원 중 한 명이라면? 마블 캐릭터로 알아보는 나의 성향 테스트! 다운로드X 회원가입X, PC 모바일 모두 가능"
+      content="내가 어벤져스 팀원 중 한 명이라면? 마블 캐릭터로 알아보는 나의 성향 테스트! 마블 mbti | 마블 테스트"
     />
-    <meta property="og:image" content="img/로고.png" />
+    <meta property="og:image" content="img/logo.png" />
   </head>
   <body>
     <div class="logo-bg">
-      <img class="logo opacity-0" src="img/로고.png" alt="avengers logo" />
+      <img class="logo opacity-0" src="img/logo.png" alt="avengers logo" />
     </div>
 
     <div class="wrapper none">
@@ -109,9 +109,12 @@
 
       <article class="result none">
         <section class="result-main">
-          <img id="img" src="img/로고.png" alt="avenger" />
+          <img id="img" src="img/logo.png" alt="avenger" />
           <h2 id="avenger"></h2>
           <h3 id="explain"></h3>
+
+          <div id="trigger"></div>
+
           <div class="ad_banner">
             <ins
               class="kakao_ad_area"
@@ -121,20 +124,38 @@
               data-ad-height="100"
             ></ins>
           </div>
+
           <h3>성향에 따라 2인조 팀을 만든다면</h3>
           <div class="good-bad">
             <div class="good">
               <h4>최고의 팀원</h4>
-              <img src="img/로고.png" alt="최고의 팀원" id="good-img" />
+              <img src="img/logo.png" alt="최고의 팀원" id="good-img" />
             </div>
             <div class="bad">
               <h4>최악의 팀원</h4>
-              <img src="img/로고.png" alt="최악의 팀원" id="bad-img" />
+              <img src="img/logo.png" alt="최악의 팀원" id="bad-img" />
             </div>
           </div>
 
           <button id="avengers_btn">모든 캐릭터 보기</button>
-          <button id="chat_btn">결과를 댓글로 공유해보세요!</button>
+          <button id="mission_btn" class="none opacity-0">
+            어벤져스 미션 확인하기
+          </button>
+
+          <div id="mission" class="none opacity-0">
+            <h1>어벤져스 미션!</h1>
+            <ul>
+              <li>미션1. 결과를 댓글로 공유한다!</li>
+              <li>미션2. 이 사이트를 친구 2명에게 공유한다!</li>
+            </ul>
+            <h6>avengersmbti.netlify.app</h6>
+            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+            <div class="share">
+              <div class="addthis_inline_share_toolbox"></div>
+            </div>
+            <button id="copy_btn">링크 복사</button>
+            <button id="chat_btn">닫기</button>
+          </div>
 
           <div class="ad_banner">
             <ins
@@ -146,23 +167,7 @@
             ></ins>
           </div>
 
-          <!-- Go to www.addthis.com/dashboard to customize your tools -->
-          <div class="share">
-            <h2>공유하기</h2>
-            <div class="addthis_inline_share_toolbox"></div>
-          </div>
-
           <button id="retry">다시하기</button>
-
-          <div class="ad_banner">
-            <ins
-              class="kakao_ad_area"
-              style="display: none"
-              data-ad-unit="DAN-7PK37qtSksP1DP4d"
-              data-ad-width="300"
-              data-ad-height="250"
-            ></ins>
-          </div>
 
           <div class="jocoding">
             <h4>이런 사이트를 만들고 싶다면</h4>
@@ -189,6 +194,16 @@
               <img alt="무작위 자리 뽑기 검색 사진1" id="seatpicker-img1" />
               <img alt="무작위 자리 뽑기 검색 사진2" id="seatpicker-img2" />
             </a>
+          </div>
+
+          <div class="ad_banner">
+            <ins
+              class="kakao_ad_area"
+              style="display: none"
+              data-ad-unit="DAN-7PK37qtSksP1DP4d"
+              data-ad-width="300"
+              data-ad-height="250"
+            ></ins>
           </div>
         </section>
 

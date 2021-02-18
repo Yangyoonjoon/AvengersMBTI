@@ -9,6 +9,8 @@ const RIGHT_CN = "right",
 
 // 문제가 이동 중 인지
 let isMoving = false;
+// 미션이 등장했는지
+let isMissionShow = false;
 
 // 문제 번호
 let num = 1;
@@ -131,7 +133,7 @@ function loading() {
     $(".result").removeClass(NONE_CN);
     $(".result-main").removeClass(NONE_CN);
     $(".wrapper").addClass("fit-content");
-  }, 2800);
+  }, 2750);
 }
 
 // 결과를 출력하는 함수
@@ -229,6 +231,10 @@ $("#chat_btn").click(() => {
   const chat = document.querySelector("#chat");
   const location = chat.offsetTop;
   scrollTo({ top: location, behavior: "smooth" });
+
+  // 미션 삭제
+  const mission = document.querySelector("#mission");
+  mission.classList.add(NONE_CN);
 });
 
 // 모든 캐릭터 보기 버튼을 눌렀을때
@@ -242,7 +248,7 @@ $("#avengers_btn").click(() => {
     $(".loading").addClass(NONE_CN);
     $(".avengers").removeClass(NONE_CN);
     $(".wrapper").addClass("fit-content");
-  }, 2800);
+  }, 2750);
 });
 
 // 다시하기 버튼을 눌렀을때
@@ -276,6 +282,51 @@ function handleLeave(event) {
   btn.classList.remove(BTN_HOVER_CN);
 }
 
+// 복사 버튼을 클릭했을때
+$("#copy_btn").click(() => {
+  copyToClipboard("https://avengersmbti.netlify.app/");
+  alert("복사 완료!");
+});
+
+// 클립보드로 복사하는 함수
+function copyToClipboard(val) {
+  let t = document.createElement("textarea");
+  document.body.appendChild(t);
+  t.value = val;
+  t.select();
+  document.execCommand("copy");
+  document.body.removeChild(t);
+}
+
+// 부드럽게 등장하는 함수
+function showSmooth(obj) {
+  obj.classList.remove(NONE_CN);
+  setTimeout(() => {
+    obj.classList.remove(OPACITY0_CN);
+  }, 200);
+}
+
+// 미션 버튼을 클릭했을때
+function handleMission(missionBtn) {
+  missionBtn.classList.add(NONE_CN);
+  const mission = document.querySelector("#mission");
+  showSmooth(mission);
+}
+
+// 스크롤이 생겼을 경우 실행되는 함수
+function handleScroll() {
+  const trigger = document.querySelector("#trigger");
+
+  if (window.scrollY >= trigger.offsetTop && !isMissionShow) {
+    isMissionShow = true;
+    const missionBtn = document.querySelector("#mission_btn");
+    showSmooth(missionBtn);
+    missionBtn.addEventListener("click", () => {
+      handleMission(missionBtn);
+    });
+  }
+}
+
 function init() {
   // 첫 화면 로딩
   setTimeout(() => {
@@ -299,6 +350,8 @@ function init() {
   } else {
     $(".wrapper").addClass(MOBILE_CN);
   }
+
+  window.addEventListener("scroll", handleScroll);
 }
 
 init();
