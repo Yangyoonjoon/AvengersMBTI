@@ -161,14 +161,18 @@ function paintResult(mbti) {
   $("#good-img").addClass(result[mbti]["good_mbti"]);
   $("#bad-img").addClass(result[mbti]["bad_mbti"]);
 
-  // seatpicker
-  $("#seatpicker-img1").attr(
+  // my-ad
+  $("#faceshapeai-img").attr(
     "src",
-    "https://avengersmbti-files.netlify.app/seatpicker-img1.jpg"
+    "https://avengersmbti-files.netlify.app/faceshapeai.png"
   );
-  $("#seatpicker-img2").attr(
+  $("#seatpicker-img").attr(
     "src",
-    "https://avengersmbti-files.netlify.app/seatpicker-img2.jpg"
+    "https://avengersmbti-files.netlify.app/seatpicker.png"
+  );
+  $("#nickname-img").attr(
+    "src",
+    "https://avengersmbti-files.netlify.app/nickname.png"
   );
 }
 
@@ -252,8 +256,16 @@ $("#avengers_btn").click(() => {
 });
 
 // 다시하기 버튼을 눌렀을때
-$("#retry").click(() => {
+$("#retry_btn").click(() => {
   location.reload();
+});
+
+// 폰트 라이선스 버튼을 눌렀을때
+$("#font_btn").click(() => {
+  const fontCopyright = document.querySelector("#font-copyright");
+  fontCopyright.classList.toggle(NONE_CN);
+  const location = fontCopyright.offsetTop;
+  scrollTo({ top: location, behavior: "smooth" });
 });
 
 // 모바일인지 확인하는 함수
@@ -285,7 +297,7 @@ function handleLeave(event) {
 // 복사 버튼을 클릭했을때
 $("#copy_btn").click(() => {
   copyToClipboard("https://avengersmbti.netlify.app/");
-  alert("복사 완료!");
+  alert("복사 완료! 감사합니다!");
 });
 
 // 클립보드로 복사하는 함수

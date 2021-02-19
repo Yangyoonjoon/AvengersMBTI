@@ -162,12 +162,10 @@
               class="kakao_ad_area"
               style="display: none"
               data-ad-unit="DAN-GKriXIgGyjBJ2Rwo"
-              data-ad-width="300"
-              data-ad-height="250"
+              data-ad-width="320"
+              data-ad-height="100"
             ></ins>
           </div>
-
-          <button id="retry">다시하기</button>
 
           <div class="jocoding">
             <h4>이런 사이트를 만들고 싶다면</h4>
@@ -185,24 +183,42 @@
             </h2>
           </div>
 
-          <div class="seatpicker">
-            <h4>
-              다가오는 새 학기! 자리 정할 때는
-              <span class="nowrap">(클릭 🔽)</span>
-            </h4>
-            <a href="https://seatpicker.netlify.app/" target="_blank">
-              <img alt="무작위 자리 뽑기 검색 사진1" id="seatpicker-img1" />
-              <img alt="무작위 자리 뽑기 검색 사진2" id="seatpicker-img2" />
+          <div class="my-ad">
+            <a
+              href="https://faceshapeai.netlify.app/"
+              target="_blank"
+              class="faceshapeai"
+            >
+              <img src="" alt="로고" id="faceshapeai-img" />
+              인공지능 헤어스타일 추천!
+            </a>
+            <a
+              href="https://seatpicker.netlify.app/"
+              target="_blank"
+              class="seatpicker"
+            >
+              <img src="" alt="로고" id="seatpicker-img" />
+              무작위 자리 뽑기
+            </a>
+            <a
+              href="https://nickname.netlify.app/"
+              target="_blank"
+              class="nickname"
+            >
+              <img src="" alt="로고" id="nickname-img" />
+              무작위 닉네임 생성기
             </a>
           </div>
+
+          <button id="retry_btn">다시하기</button>
 
           <div class="ad_banner">
             <ins
               class="kakao_ad_area"
               style="display: none"
               data-ad-unit="DAN-7PK37qtSksP1DP4d"
-              data-ad-width="300"
-              data-ad-height="250"
+              data-ad-width="320"
+              data-ad-height="100"
             ></ins>
           </div>
         </section>
@@ -211,8 +227,28 @@
 
         <section id="chat">
           <h2 class="chat_title">댓글</h2>
-          <div id="disqus_thread"></div>
+          <div class="chat">
+            <div id="disqus_thread"></div>
+            <span>댓글이 보이지 않는다면 잠시 기다려주세요...</span>
+          </div>
         </section>
+
+        <div class="copyright">
+          <div class="site-copyright">
+            (C) 양윤준 YYJ 2021. All Rights Reserved.
+          </div>
+          <button id="font_btn">폰트 라이선스 보기</button>
+          <div id="font-copyright" class="none">
+            <span>이 페이지는</span>
+            <ul>
+              <li>(주)카페24에서 제공한 카페24 아네모네</li>
+              <li>(주)더페이스샵에서 제공한 잉크립퀴드체</li>
+              <li>(주)우아한형제들에서 제공한 배민 을지로10년후체</li>
+              <li>(주)SPC삼립에서 제공한 산돌 삼립호빵체 Outline</li>
+            </ul>
+            <span>폰트가 사용되었습니다.</span>
+          </div>
+        </div>
       </article>
 
       <input type="hidden" id="EI" value="0" />

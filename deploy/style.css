@@ -12,6 +12,7 @@
 body,
 ul {
   padding: 0;
+  margin: 0;
 }
 
 body {
@@ -42,12 +43,35 @@ a:hover {
 
 li {
   list-style-type: none;
-  font-size: 18px;
 }
 
 @font-face {
   font-family: "Cafe24Ohsquare";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "InkLipquid";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/InkLipquid.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BMEuljiro10yearslater";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/BMEuljiro10yearslater.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SDSamliphopangche_Outline";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
@@ -98,6 +122,10 @@ li {
 
 audio:focus {
   outline: none;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 /* question page */
@@ -241,6 +269,14 @@ audio:focus {
   transition: all 0.4s;
 }
 
+#mission ul {
+  margin-bottom: 15px;
+}
+
+#mission ul li {
+  font-size: 18px;
+}
+
 /* mission animation */
 
 @keyframes missionBtn {
@@ -273,17 +309,21 @@ audio:focus {
   }
 }
 
-/* disqus */
+/* disqus chat */
 
 #chat {
-  margin-top: 25px;
+  margin-top: 5px;
 }
 
-#disqus_thread {
+.chat {
   background-color: var(--base-color);
   border-radius: 4px;
   padding: 10px;
   margin: 10px 0;
+}
+
+.chat span {
+  color: var(--effect-color);
 }
 
 .chat_title {
@@ -295,6 +335,10 @@ audio:focus {
 
 .ad_banner {
   width: 320px;
+  margin: 20px auto;
+}
+
+#question-ad {
   margin: 0 auto;
   margin-top: 10px;
 }
@@ -313,19 +357,63 @@ audio:focus {
   width: 40px;
 }
 
+/* my-ad */
+
+.my-ad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--base-color);
+  border-radius: 10px;
+  width: 400px;
+  height: fit-content;
+  padding: 30px 0;
+  margin: 15px auto;
+  transition: all 0.4s;
+}
+
+.my-ad a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: 30px;
+}
+
+.my-ad img {
+  width: 30px;
+  margin-right: 10px;
+}
+
+.faceshapeai {
+  font-family: "InkLipquid";
+  font-weight: bolder;
+  color: #e7dbf9 !important;
+  transition: all 0.4s;
+}
+
 .seatpicker {
-  margin: 20px 0;
+  font-family: "BMEuljiro10yearslater";
+  color: rgba(170, 121, 30, 0.9) !important;
+  transition: all 0.4s;
 }
 
-.seatpicker img {
-  width: 95%;
-  max-width: 450px;
-  margin-bottom: 10px;
-  border-radius: 4px;
+.nickname {
+  font-family: "SDSamliphopangche_Outline";
+  color: #9da7c0 !important;
+  transition: all 0.4s;
 }
 
-.nowrap {
-  white-space: nowrap;
+/* copyright */
+
+.copyright {
+  color: var(--base-color);
+  margin: 10px 0;
+}
+
+.font-copyright {
+  margin-top: 20px;
 }
 
 /* js class */
@@ -373,10 +461,11 @@ button {
   margin-top: 15px;
 }
 
-#retry,
+#retry_btn,
 #chat_btn,
 #avengers_btn,
-#mission_btn {
+#mission_btn,
+#font_btn {
   width: 300px;
   height: 70px;
   margin: 10px auto;
@@ -394,8 +483,9 @@ button {
   color: var(--base-color);
 }
 
-#retry:active,
-#avengers_btn:active {
+#retry_btn:active,
+#avengers_btn:active,
+#font_btn:active {
   color: var(--base-color);
   background-color: var(--point-color);
 }
@@ -416,6 +506,16 @@ button:active {
 }
 
 /* media query */
+
+@media (max-width: 500px) {
+  .my-ad {
+    width: 90%;
+  }
+  .faceshapeai,
+  .nickname {
+    font-size: 25px !important;
+  }
+}
 
 @media (max-height: 610px) {
   #title {
@@ -440,6 +540,10 @@ button:active {
 @media (max-width: 359px) {
   .wrapper {
     padding: 0;
+  }
+  .start,
+  .question {
+    padding: 0 5px;
   }
   .good,
   .bad {
