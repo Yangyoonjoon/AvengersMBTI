@@ -6,7 +6,7 @@
   background-size: cover;
   overflow: hidden;
   box-shadow: 0 0 20px 3px var(--effect-color);
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
 body,
@@ -43,6 +43,10 @@ a:hover {
 
 li {
   list-style-type: none;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
 
 @font-face {
@@ -109,25 +113,6 @@ li {
   transition: all 0.4s;
 }
 
-.audio {
-  transition: all 0.4s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.audio h3 {
-  margin: 0 10px;
-}
-
-audio:focus {
-  outline: none;
-}
-
-.nowrap {
-  white-space: nowrap;
-}
-
 /* question page */
 
 .bottom {
@@ -135,8 +120,34 @@ audio:focus {
   bottom: 0;
   left: calc((100% - 500px) / 2);
   width: 500px;
-  height: 33vh;
+  height: 160px;
   background-color: rgba(0, 0, 0, 0);
+  transition: all 0.4s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bottom-menu {
+  display: flex;
+  align-items: center;
+}
+
+#url_btn {
+  font-size: 16px;
+  width: fit-content;
+  height: 45px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+#music_btn {
+  font-size: 35px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
 }
 
 .start h1 {
@@ -150,7 +161,7 @@ audio:focus {
 }
 
 .progress {
-  height: 20px;
+  height: 3vh;
   margin: 10px 0;
   background-color: var(--point-color);
 }
@@ -159,7 +170,7 @@ audio:focus {
 
 #title {
   width: 100%;
-  height: 130px;
+  height: 22vh;
   background-color: var(--effect-color);
   border-radius: 4px;
   border: 2px solid var(--base-color);
@@ -167,7 +178,8 @@ audio:focus {
   justify-content: center;
   align-items: center;
   font-size: 22px;
-  padding: 0 5px;
+  padding: 0 10px;
+  transition: all 0.4s;
 }
 
 #img {
@@ -444,7 +456,7 @@ audio:focus {
 }
 
 .mobile {
-  width: 800px;
+  width: 1000px !important;
 }
 
 /* button */
@@ -457,8 +469,13 @@ button {
   border: 2px solid var(--effect-color);
   background-color: var(--base-color);
   transition: all 0.6s;
-  height: 100px;
+  height: 16vh;
   margin-top: 15px;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
 }
 
 #retry_btn,
@@ -483,8 +500,8 @@ button {
   color: var(--base-color);
 }
 
-#retry_btn:active,
-#avengers_btn:active,
+#retry_btn:hover,
+#avengers_btn:hover,
 #font_btn:active {
   color: var(--base-color);
   background-color: var(--point-color);
@@ -507,36 +524,6 @@ button:active {
 
 /* media query */
 
-@media (max-width: 500px) {
-  .my-ad {
-    width: 90%;
-  }
-  .faceshapeai,
-  .nickname {
-    font-size: 25px !important;
-  }
-}
-
-@media (max-height: 610px) {
-  #title {
-    font-size: 18px !important;
-    height: 110px;
-  }
-  #A,
-  #B {
-    font-size: 16px;
-    height: 90px;
-    padding: 0 10px;
-    margin-top: 5px;
-  }
-  .audio h3 {
-    font-size: 20px;
-  }
-  audio {
-    zoom: 0.8;
-  }
-}
-
 @media (max-width: 359px) {
   .wrapper {
     padding: 0;
@@ -552,18 +539,19 @@ button:active {
 }
 
 @media (max-width: 500px) {
-  .bottom {
-    width: 100%;
-    left: 0;
+  .my-ad {
+    width: 90%;
+  }
+  .faceshapeai,
+  .nickname {
+    font-size: 25px !important;
   }
   .start h1 {
     font-size: 50px;
   }
-  #title {
-    font-size: 20px;
-  }
-  button {
-    font-size: 18px;
+  .bottom {
+    width: 100%;
+    left: 0;
   }
   .avengers div {
     margin: 10px auto;
@@ -575,12 +563,95 @@ button:active {
 }
 
 @media (min-width: 500px) {
-  .wrapper {
-    width: 500px;
-  }
   #mission {
     width: 450px;
     left: calc((100% - 450px) / 2);
+  }
+}
+
+@media (max-height: 610px) {
+  #title {
+    font-size: 18px !important;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 16px !important;
+    padding: 0;
+    margin-top: 5px;
+  }
+}
+
+@media (max-height: 650px) {
+  #title {
+    font-size: 20px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 18px;
+  }
+}
+
+@media (min-height: 700px) {
+  #title {
+    font-size: 24px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 22px;
+  }
+}
+
+@media (min-height: 800px) {
+  #title {
+    font-size: 26px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 24px;
+  }
+}
+
+@media (min-height: 900px) {
+  .start h1 {
+    font-size: 70px;
+  }
+  .start h2 {
+    font-size: 40px;
+  }
+  #title {
+    font-size: 28px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 26px;
+  }
+  .progress-bar {
+    font-size: 15px;
+  }
+}
+
+@media (min-height: 1200px) {
+  .start h1 {
+    font-size: 100px;
+  }
+  .start h2 {
+    font-size: 60px;
+  }
+  #title {
+    font-size: 38px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 36px;
+  }
+  .progress-bar {
+    font-size: 20px;
   }
 }
 
@@ -598,32 +669,56 @@ button:active {
   }
 }
 
-@media (min-width: 1800px) {
+@media (min-width: 1600px) {
   .start h1 {
-    font-size: 100px;
+    font-size: 70px !important;
   }
   .start h2 {
+    font-size: 40px !important;
+  }
+  #title {
+    font-size: 26px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 24px;
+  }
+  .progress-bar {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 2100px) {
+  .start h1 {
+    font-size: 100px !important;
+  }
+  .start h2 {
+    font-size: 60px !important;
+  }
+  .bottom {
+    height: 250px;
+  }
+  .bottom-menu {
+    margin-bottom: 10px;
+  }
+  #url_btn {
+    font-size: 20px;
+    height: 60px;
+  }
+  #music_btn {
+    width: 60px;
     font-size: 40px;
   }
   #title {
+    font-size: 34px;
+  }
+  #A,
+  #B,
+  .start_btn {
     font-size: 30px;
-    height: 180px;
-  }
-  .btn-hover {
-    font-size: 30px;
-    height: 130px;
-  }
-  .audio h3 {
-    font-size: 40px;
-  }
-  audio {
-    zoom: 1.5;
-  }
-  .progress {
-    height: 30px;
   }
   .progress-bar {
-    height: 30px;
     font-size: 20px;
   }
   #explain {
@@ -635,33 +730,31 @@ button:active {
   }
 }
 
-@media (min-width: 2800px) {
+@media (min-width: 2600px) {
   .start h1 {
-    font-size: 150px;
+    font-size: 130px !important;
   }
   .start h2 {
-    font-size: 80px;
+    font-size: 60px !important;
+  }
+  #url_btn {
+    font-size: 25px;
+    height: 75px;
+  }
+  #music_btn {
+    width: 80px;
+    font-size: 60px;
   }
   #title {
-    font-size: 60px;
-    height: 300px;
+    font-size: 50px;
   }
-  .btn-hover {
-    font-size: 60px;
-    height: 250px;
-  }
-  .audio h3 {
-    font-size: 80px;
-  }
-  audio {
-    zoom: 2.5;
-  }
-  .progress {
-    height: 60px;
+  #A,
+  #B,
+  .start_btn {
+    font-size: 40px;
   }
   .progress-bar {
-    height: 60px;
-    font-size: 40px;
+    font-size: 25px;
   }
 }
 

@@ -8,7 +8,10 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <!-- my files -->
     <link rel="stylesheet" href="style.css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/data.js" defer></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script
       async
@@ -62,27 +65,26 @@
       <article class="start">
         <h1>어벤져스 MBTI</h1>
         <h2>엔드게임</h2>
-        <button type="button" onclick="start()" class="btn-hover">
+        <button type="button" onclick="start()" class="btn-hover start_btn">
           테스트 시작하기
         </button>
       </article>
 
-      <div class="bottom">
-        <div class="audio none">
-          <h3>배경음악을 듣고싶다면</h3>
-          <audio
-            controls
-            src="https://avengersmbti-files.netlify.app/어벤져스.mp3"
-          ></audio>
-          <div class="ad_banner none" id="question-ad">
-            <ins
-              class="kakao_ad_area"
-              style="display: none"
-              data-ad-unit="DAN-nG9gvvBdAQD9CUmc"
-              data-ad-width="320"
-              data-ad-height="100"
-            ></ins>
-          </div>
+      <div class="bottom none">
+        <div class="bottom-menu">
+          <button id="url_btn" class="btn-hover">URL 복사하기</button>
+          <h3 id="music_btn">
+            <i class="fas fa-volume-up"></i>
+          </h3>
+        </div>
+        <div class="ad_banner none" id="question-ad">
+          <ins
+            class="kakao_ad_area"
+            style="display: none"
+            data-ad-unit="DAN-nG9gvvBdAQD9CUmc"
+            data-ad-width="320"
+            data-ad-height="100"
+          ></ins>
         </div>
       </div>
 
@@ -137,10 +139,12 @@
             </div>
           </div>
 
-          <button id="avengers_btn">모든 캐릭터 보기</button>
-          <button id="mission_btn" class="none opacity-0">
-            어벤져스 미션 확인하기
-          </button>
+          <div class="btns">
+            <button id="avengers_btn">모든 캐릭터 보기</button>
+            <button id="mission_btn" class="none opacity-0">
+              어벤져스 미션 확인하기
+            </button>
+          </div>
 
           <div id="mission" class="none opacity-0">
             <h1>어벤져스 미션!</h1>
@@ -268,9 +272,11 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
-    <!-- my scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/data.js"></script>
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/afb19fe50c.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- kakao adfit -->
     <script
       type="text/javascript"

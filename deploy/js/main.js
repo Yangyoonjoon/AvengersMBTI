@@ -7,10 +7,17 @@ const RIGHT_CN = "right",
   OPACITY0_CN = "opacity-0",
   MOBILE_CN = "mobile";
 
+const audio = new Audio("https://avengersmbti-files.netlify.app/어벤져스.mp3");
+const musicBtn = document.querySelector("#music_btn");
+
 // 문제가 이동 중 인지
 let isMoving = false;
 // 미션이 등장했는지
 let isMissionShow = false;
+// 음악을 재생할 것인지
+let isMusicOn = true;
+// 테스트를 시작하였는지 (음악 컨트롤을 위해)
+let isTestStart = false;
 
 // 문제 번호
 let num = 1;
@@ -41,6 +48,10 @@ function start() {
   $(".question").removeClass(NONE_CN);
   $(".progress").removeClass(NONE_CN);
   $("#question-ad").removeClass(NONE_CN);
+  isTestStart = true;
+  if (isMusicOn) {
+    playMusic();
+  }
   next();
 
   // 모든 캐릭터 보기 생성
@@ -299,6 +310,10 @@ $("#copy_btn").click(() => {
   copyToClipboard("https://avengersmbti.netlify.app/");
   alert("복사 완료! 감사합니다!");
 });
+$("#url_btn").click(() => {
+  copyToClipboard("https://avengersmbti.netlify.app/");
+  alert("복사 완료! 감사합니다!");
+});
 
 // 클립보드로 복사하는 함수
 function copyToClipboard(val) {
@@ -339,6 +354,30 @@ function handleScroll() {
   }
 }
 
+// 음악을 재생하는 함수
+function playMusic() {
+  musicBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+  isMusicOn = true;
+  if (isTestStart) {
+    audio.play();
+  }
+}
+
+// 음악을 정지하는 함수
+function pauseMusic() {
+  musicBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+  isMusicOn = false;
+  audio.pause();
+}
+
+function handleMusic() {
+  if (isMusicOn) {
+    pauseMusic();
+  } else {
+    playMusic();
+  }
+}
+
 function init() {
   // 첫 화면 로딩
   setTimeout(() => {
@@ -347,7 +386,7 @@ function init() {
     setTimeout(() => {
       $(".logo-bg").addClass(OPACITY0_CN);
       setTimeout(() => {
-        $(".audio").removeClass(NONE_CN);
+        $(".bottom").removeClass(NONE_CN);
         $(".logo-bg").addClass(NONE_CN);
       }, 500);
     }, 700);
@@ -363,7 +402,14 @@ function init() {
     $(".wrapper").addClass(MOBILE_CN);
   }
 
+  musicBtn.onclick = handleMusic;
   window.addEventListener("scroll", handleScroll);
+  audio.addEventListener("play", () => {
+    playMusic();
+  });
+  audio.addEventListener("pause", () => {
+    pauseMusic();
+  });
 }
 
 init();

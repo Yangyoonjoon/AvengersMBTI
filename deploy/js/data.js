@@ -41,7 +41,7 @@ let q = {
     type: "SN",
     A: '"평소 하던 게 제일 편해!" 평소 해 오던 방식으로 자리를 정한다.',
     B:
-      '"우와! 이런거도 있네!" 처음이지만 다른 방식을 시도해본다. ex) <i><a href="https://seatpicker.netlify.app/" target="_blank">무작위 자리 뽑기</a></i>',
+      '"우와! 이런거도 있네!" 처음이지만 다른 방식을 시도해본다. ex) <i class="nowrap"><a href="https://seatpicker.netlify.app/" target="_blank">무작위 자리 뽑기</a></i>',
   },
   7: {
     title: "작전 회의 중 세 팀으로 나눠서 과거로 떠나기로 했을 때 나는",
