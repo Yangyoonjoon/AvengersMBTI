@@ -5,15 +5,19 @@ const RIGHT_CN = "right",
   TEST_END_CN = "test-end",
   BTN_HOVER_CN = "button-hover",
   OPACITY0_CN = "opacity-0",
-  MOBILE_CN = "mobile";
+  MOBILE_CN = "mobile",
+  LMOBILE_CN = "large-mobile",
+  NOTAPPEAR_CN = "notAppear";
 
 const audio = new Audio("https://avengersmbti-files.netlify.app/어벤져스.mp3");
 const musicBtn = document.querySelector("#music_btn");
 
 // 문제가 이동 중 인지
 let isMoving = false;
-// 미션이 등장했는지
-let isMissionShow = false;
+// 트리거를 사용했는지
+let isTrigger1Used = false;
+let isTrigger2Used = false;
+let isTrigger3Used = false;
 // 음악을 재생할 것인지
 let isMusicOn = true;
 // 테스트를 시작하였는지 (음악 컨트롤을 위해)
@@ -113,13 +117,16 @@ function next() {
 
     if (num === 1) {
       $(".question").addClass(RIGHT_CN);
+      $(".question").addClass(OPACITY0_CN);
       changeQuestion();
       setTimeout(() => {
         $(".question").removeClass(RIGHT_CN);
+        $(".question").removeClass(OPACITY0_CN);
         isMoving = false;
       }, 300);
     } else {
       $(".question").addClass(LEFT_CN);
+      $(".question").addClass(OPACITY0_CN);
       setTimeout(() => {
         changeQuestion();
         $(".question").removeClass(LEFT_CN);
@@ -129,6 +136,7 @@ function next() {
           $(".question").removeClass(NONE_CN);
           setTimeout(() => {
             $(".question").removeClass(RIGHT_CN);
+            $(".question").removeClass(OPACITY0_CN);
             isMoving = false;
           }, 100);
         }, 100);
@@ -144,6 +152,27 @@ function loading() {
     $(".result").removeClass(NONE_CN);
     $(".result-main").removeClass(NONE_CN);
     $(".wrapper").addClass("fit-content");
+
+    // 등장 애니메이션 초기화
+    $("#img").addClass(NOTAPPEAR_CN);
+    $("#avenger").addClass(NOTAPPEAR_CN);
+    $("#explain").addClass(NOTAPPEAR_CN);
+    $(".good-bad-title").addClass(NOTAPPEAR_CN);
+    $(".good-bad").addClass(NOTAPPEAR_CN);
+    $("#avengers_btn").addClass(NOTAPPEAR_CN);
+    $("#mission_btn").addClass(NOTAPPEAR_CN);
+    $(".jocoding").addClass(NOTAPPEAR_CN);
+    $(".my-ad").addClass(NOTAPPEAR_CN);
+    $("#retry_btn").addClass(NOTAPPEAR_CN);
+    isTrigger1Used = false;
+    isTrigger2Used = false;
+    isTrigger3Used = false;
+
+    setAppearTime(
+      document.querySelector("#img"),
+      document.querySelector("#avenger"),
+      document.querySelector("#explain")
+    );
   }, 2750);
 }
 
@@ -194,6 +223,8 @@ function changeAvenger(mbti) {
   $(".wrapper").removeClass("fit-content");
   paintResult(mbti);
 
+  scrollTo({ top: 0 });
+
   // 로딩
   loading();
 }
@@ -208,6 +239,7 @@ function loadAvengers() {
     const name = document.createElement("h4");
     const img = document.createElement("img");
 
+    name.className = "name";
     name.innerText = result[MBTI[i]]["avenger"];
 
     img.className = MBTI[i];
@@ -325,32 +357,67 @@ function copyToClipboard(val) {
   document.body.removeChild(t);
 }
 
-// 부드럽게 등장하는 함수
-function showSmooth(obj) {
-  obj.classList.remove(NONE_CN);
+// 등장하는 함수
+function appear(dom) {
+  dom.classList.remove(NOTAPPEAR_CN);
+}
+
+// 시간 간격을 두고 세개의 dom이 등장하는 함수
+function setAppearTime(dom1, dom2, dom3) {
   setTimeout(() => {
-    obj.classList.remove(OPACITY0_CN);
-  }, 200);
+    appear(dom1);
+    setTimeout(() => {
+      appear(dom2);
+      setTimeout(() => {
+        appear(dom3);
+      }, 300);
+    }, 300);
+  }, 300);
 }
 
 // 미션 버튼을 클릭했을때
 function handleMission(missionBtn) {
   missionBtn.classList.add(NONE_CN);
   const mission = document.querySelector("#mission");
-  showSmooth(mission);
+  mission.classList.remove(NONE_CN);
+  setTimeout(() => {
+    appear(mission);
+  }, 100);
 }
 
 // 스크롤이 생겼을 경우 실행되는 함수
 function handleScroll() {
-  const trigger = document.querySelector("#trigger");
+  const trigger1 = document.querySelector("#trigger1");
+  const trigger2 = document.querySelector("#trigger2");
+  const trigger3 = document.querySelector("#trigger3");
 
-  if (window.scrollY >= trigger.offsetTop && !isMissionShow) {
-    isMissionShow = true;
+  const height = window.innerHeight;
+
+  if (window.scrollY + height >= trigger1.offsetTop && !isTrigger1Used) {
+    isTrigger1Used = true;
+
+    setAppearTime(
+      document.querySelector(".good-bad-title"),
+      document.querySelector(".good-bad"),
+      document.querySelector("#avengers_btn")
+    );
+  } else if (window.scrollY + height >= trigger2.offsetTop && !isTrigger2Used) {
+    isTrigger2Used = true;
+
+    // 미션 버튼
     const missionBtn = document.querySelector("#mission_btn");
-    showSmooth(missionBtn);
+    appear(missionBtn);
     missionBtn.addEventListener("click", () => {
       handleMission(missionBtn);
     });
+  } else if (window.scrollY + height >= trigger3.offsetTop && !isTrigger3Used) {
+    isTrigger3Used = true;
+
+    setAppearTime(
+      document.querySelector(".jocoding"),
+      document.querySelector(".my-ad"),
+      document.querySelector("#retry_btn")
+    );
   }
 }
 
@@ -378,6 +445,19 @@ function handleMusic() {
   }
 }
 
+function handleResize() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
+  if (width <= 800 && height >= 1000) {
+    $(".wrapper").addClass(MOBILE_CN);
+  } else if (width <= 1200 && height >= 1300) {
+    $(".wrapper").addClass(LMOBILE_CN);
+  } else {
+    $(".wrapper").removeClass(MOBILE_CN);
+    $(".wrapper").removeClass(LMOBILE_CN);
+  }
+}
+
 function init() {
   // 첫 화면 로딩
   setTimeout(() => {
@@ -385,10 +465,14 @@ function init() {
     $(".wrapper").removeClass(NONE_CN);
     setTimeout(() => {
       $(".logo-bg").addClass(OPACITY0_CN);
+      $(".start").removeClass(NONE_CN);
       setTimeout(() => {
-        $(".bottom").removeClass(NONE_CN);
         $(".logo-bg").addClass(NONE_CN);
-      }, 500);
+        appear(document.querySelector(".start"));
+        setTimeout(() => {
+          appear(document.querySelector(".bottom-menu"));
+        }, 500);
+      }, 700);
     }, 700);
   }, 700);
 
@@ -401,9 +485,10 @@ function init() {
   } else {
     $(".wrapper").addClass(MOBILE_CN);
   }
-
+  handleResize();
   musicBtn.onclick = handleMusic;
   window.addEventListener("scroll", handleScroll);
+  window.addEventListener("resize", handleResize);
   audio.addEventListener("play", () => {
     playMusic();
   });

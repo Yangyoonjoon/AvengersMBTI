@@ -44,7 +44,7 @@
     />
     <meta
       name="keywords"
-      content="어벤져스 mbti, 어벤져스, 마블, 어벤져스 테스트, 마블 테스트, 마블 mbti, mbti, 테스트, mbti 테스트, 심리 테스트, 성향 테스트, 어벤져스 엔드게임, 엔드게임, avengers test, avengers mbti, avengers, 스칼렛위치, 스파이더맨, 비전, 로키, 닥터스트레인지, 타노스, 헐크, 아이언맨, 블랙팬서, 토르, 블랙위도우, 스타로드, 캡틴아메리카, 앤트맨, 호크아이, 캡틴마블, 어벤져스 인피니티 워, 인피니티 워, 어벤져스 등장인물, 어벤져스 시리즈 순서"
+      content="어벤져스 mbti, 어벤져스, 마블, 어벤져스 테스트, 마블 테스트, 마블 mbti, mbti, 테스트, mbti 테스트, 심리 테스트, 성향 테스트, 어벤져스 엔드게임, 엔드게임, avengers test, avengers mbti, avengers, 완다 mbti, 스칼렛위치 mbti, 스파이더맨 mbti, 비전 mbti, 로키 mbti, 닥터스트레인지 mbti, 타노스 mbti, 헐크 mbti, 아이언맨 mbti, 블랙팬서 mbti, 토르 mbti, 블랙위도우 mbti, 스타로드 mbti, 캡틴아메리카 mbti, 앤트맨 mbti, 호크아이 mbti, 캡틴마블 mbti"
     />
     <meta name="author" content="Yangyoonjoon" />
     <meta property="og:url" content="https://avengersmbti.netlify.app/" />
@@ -62,16 +62,16 @@
     </div>
 
     <div class="wrapper none">
-      <article class="start">
+      <article class="start none notAppear">
         <h1>어벤져스 MBTI</h1>
         <h2>엔드게임</h2>
         <button type="button" onclick="start()" class="btn-hover start_btn">
-          테스트 시작하기
+          테스트 시작하기 <br />( 사운드가 포함되어 있으니 조심! )
         </button>
       </article>
 
-      <div class="bottom none">
-        <div class="bottom-menu">
+      <div class="bottom">
+        <div class="bottom-menu notAppear">
           <button id="url_btn" class="btn-hover">URL 복사하기</button>
           <h3 id="music_btn">
             <i class="fas fa-volume-up"></i>
@@ -111,11 +111,9 @@
 
       <article class="result none">
         <section class="result-main">
-          <img id="img" src="img/logo.png" alt="avenger" />
-          <h2 id="avenger"></h2>
-          <h3 id="explain"></h3>
-
-          <div id="trigger"></div>
+          <img id="img" src="img/logo.png" alt="avenger" class="notAppear" />
+          <h2 id="avenger" class="notAppear"></h2>
+          <h3 id="explain" class="notAppear"></h3>
 
           <div class="ad_banner">
             <ins
@@ -127,8 +125,13 @@
             ></ins>
           </div>
 
-          <h3>성향에 따라 2인조 팀을 만든다면</h3>
-          <div class="good-bad">
+          <h3 class="good-bad-title notAppear">
+            성향에 따라 2인조 팀을 만든다면
+          </h3>
+
+          <div id="trigger1"></div>
+
+          <div class="good-bad notAppear">
             <div class="good">
               <h4>최고의 팀원</h4>
               <img src="img/logo.png" alt="최고의 팀원" id="good-img" />
@@ -140,13 +143,15 @@
           </div>
 
           <div class="btns">
-            <button id="avengers_btn">모든 캐릭터 보기</button>
-            <button id="mission_btn" class="none opacity-0">
+            <button id="avengers_btn" class="notAppear">
+              모든 캐릭터 보기
+            </button>
+            <button id="mission_btn" class="notAppear">
               어벤져스 미션 확인하기
             </button>
           </div>
 
-          <div id="mission" class="none opacity-0">
+          <div id="mission" class="none notAppear">
             <h1>어벤져스 미션!</h1>
             <ul>
               <li>미션1. 결과를 댓글로 공유한다!</li>
@@ -171,7 +176,9 @@
             ></ins>
           </div>
 
-          <div class="jocoding">
+          <div id="trigger2"></div>
+
+          <div class="jocoding notAppear">
             <h4>이런 사이트를 만들고 싶다면</h4>
             <h2>
               <a
@@ -187,7 +194,9 @@
             </h2>
           </div>
 
-          <div class="my-ad">
+          <div id="trigger3"></div>
+
+          <div class="my-ad notAppear">
             <a
               href="https://faceshapeai.netlify.app/"
               target="_blank"
@@ -214,7 +223,7 @@
             </a>
           </div>
 
-          <button id="retry_btn">다시하기</button>
+          <button id="retry_btn" class="notAppear">다시하기</button>
 
           <div class="ad_banner">
             <ins
