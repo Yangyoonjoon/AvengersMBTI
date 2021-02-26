@@ -1,7 +1,7 @@
 .wrapper {
-  width: 500px;
+  width: 600px;
   height: 100vh;
-  background-image: url("img/bg.jpg");
+  background-image: url("../img/bg.jpg");
   background-position: center;
   background-size: cover;
   overflow: hidden;
@@ -48,6 +48,8 @@ li {
 .nowrap {
   white-space: nowrap;
 }
+
+/* @import url("animation.css"); */
 
 @font-face {
   font-family: "Cafe24Ohsquare";
@@ -117,8 +119,8 @@ li {
 .bottom {
   position: absolute;
   bottom: 0;
-  left: calc((100% - 500px) / 2);
-  width: 500px;
+  left: calc((100% - 600px) / 2);
+  width: 600px;
   height: 160px;
   background-color: rgba(0, 0, 0, 0);
   transition: all 0.4s;
@@ -183,8 +185,8 @@ li {
 }
 
 #img {
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
   margin: 30px auto;
   border-radius: 20px;
   border: 2px solid var(--base-color);
@@ -197,9 +199,9 @@ li {
 }
 
 #explain {
-  padding: 10px;
-  line-height: 25px;
-  font-size: 18px;
+  padding: 10px 5%;
+  line-height: 1.5;
+  font-size: 17px;
   margin: 0;
   margin-top: 20px;
   transition: all 0.6s;
@@ -240,8 +242,17 @@ li {
   color: var(--base-color);
 }
 
+.result h2 {
+  font-size: 32px;
+}
+
 .result h3 {
+  font-size: 28px;
   margin: 20px 0;
+}
+
+.result h4 {
+  font-size: 24px;
 }
 
 /* all character page */
@@ -273,20 +284,17 @@ li {
 }
 
 #mission {
-  width: 450px;
-  height: 450px;
+  width: 85%;
+  height: fit-content;
   background-color: var(--base-color);
-  background-image: url("img/logo.png");
+  background-image: url("../img/logo.png");
   background-position: center;
   background-size: cover;
   color: var(--effect-color);
   border-radius: 10px;
-  border: 2px solid var(--point-color);
+  border: 3px solid var(--point-color);
   padding: 40px 0;
-  position: fixed;
-  top: 10px;
-  left: calc((100% - 450px) / 2);
-  z-index: 1;
+  margin: 20px auto;
   transition: all 0.4s;
 }
 
@@ -296,38 +304,6 @@ li {
 
 #mission ul li {
   font-size: 18px;
-}
-
-/* mission animation */
-
-@keyframes missionBtn {
-  0% {
-    background-color: var(--point-color);
-    color: var(--base-color);
-  }
-  50% {
-    background-color: var(--base-color);
-    color: var(--effect-color);
-  }
-  0% {
-    background-color: var(--point-color);
-    color: var(--base-color);
-  }
-}
-
-@-webkit-keyframes missionBtn {
-  0% {
-    background-color: var(--point-color);
-    color: var(--base-color);
-  }
-  50% {
-    background-color: var(--base-color);
-    color: var(--effect-color);
-  }
-  0% {
-    background-color: var(--point-color);
-    color: var(--base-color);
-  }
 }
 
 /* disqus chat */
@@ -356,7 +332,7 @@ li {
 
 .ad_banner {
   width: 320px;
-  margin: 20px auto;
+  margin: 30px auto;
 }
 
 #question-ad {
@@ -474,10 +450,6 @@ li {
   width: 100% !important;
 }
 
-.large-mobile {
-  width: 800px !important;
-}
-
 /* button */
 
 button {
@@ -538,360 +510,4 @@ button:active {
 .button-hover {
   color: var(--base-color);
   background-color: var(--effect-color);
-}
-
-/* media query */
-
-@media (max-width: 350px) {
-  .wrapper {
-    padding: 0;
-  }
-  .progress {
-    margin: 10px;
-  }
-  .start,
-  .question {
-    padding: 0 10px;
-  }
-  #img {
-    width: 250px;
-    height: 250px;
-  }
-  #explain {
-    font-size: 16px;
-  }
-  #good-img,
-  #bad-img {
-    width: 120px;
-    height: 120px;
-  }
-  #retry_btn,
-  #avengers_btn,
-  #mission_btn,
-  #font_btn {
-    width: 95%;
-  }
-  .name {
-    font-size: 18px !important;
-  }
-  .chat {
-    width: 95%;
-    margin: 10px auto;
-  }
-  .start h1 {
-    font-size: 40px !important;
-  }
-  .start h2 {
-    font-size: 25px !important;
-  }
-  .avengers div img {
-    width: 120px;
-    height: 120px;
-  }
-}
-
-@media (max-width: 400px) {
-  .name {
-    font-size: 22px;
-  }
-}
-
-@media (max-width: 500px) {
-  .my-ad {
-    width: 90%;
-  }
-  .faceshapeai,
-  .nickname {
-    font-size: 25px !important;
-  }
-  .start h1 {
-    font-size: 50px;
-  }
-  .bottom {
-    width: 100%;
-    left: 0;
-  }
-  .avengers div {
-    margin: 10px auto;
-  }
-  #mission {
-    width: 95%;
-    left: calc((100% - 95%) / 2);
-  }
-}
-
-@media (min-width: 500px) {
-  #mission {
-    width: 450px;
-    left: calc((100% - 450px) / 2);
-  }
-}
-
-@media (max-height: 600px) {
-  #title {
-    font-size: 18px !important;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 16px !important;
-  }
-}
-
-@media (min-height: 600px) {
-  #title {
-    font-size: 20px;
-    margin-bottom: 5px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-}
-
-@media (min-height: 700px) {
-  #title {
-    font-size: 22px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 20px;
-  }
-}
-
-@media (min-height: 800px) {
-  #title {
-    font-size: 24px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 22px;
-  }
-}
-
-@media (min-height: 1000px) {
-  .start h1 {
-    font-size: 100px;
-  }
-  .start h2 {
-    font-size: 50px;
-  }
-  #title {
-    font-size: 30px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 27px;
-  }
-  .progress-bar {
-    font-size: 20px;
-  }
-  #url_btn {
-    font-size: 20px;
-    height: 60px;
-  }
-  #music_btn {
-    width: 60px;
-    font-size: 40px;
-  }
-  .bottom {
-    height: 200px;
-  }
-  .bottom-menu {
-    margin-bottom: 10px;
-  }
-}
-
-@media (min-height: 1200px) {
-  #title {
-    font-size: 35px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 32px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .bottom {
-    width: 40%;
-    left: calc((100% - 40%) / 2);
-  }
-  .wrapper {
-    width: 40%;
-  }
-  #mission {
-    width: 35%;
-    left: calc((100% - 35%) / 2);
-  }
-}
-
-@media (min-width: 1400px) {
-  .start h1 {
-    font-size: 70px !important;
-  }
-  .start h2 {
-    font-size: 30px !important;
-  }
-  #title {
-    font-size: 24px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 22px;
-  }
-  .progress-bar {
-    font-size: 15px;
-  }
-  .avengers div img {
-    width: 200px;
-    height: 200px;
-  }
-}
-
-@media (min-width: 1600px) {
-  .start h1 {
-    font-size: 80px !important;
-  }
-  .start h2 {
-    font-size: 40px !important;
-  }
-  .bottom {
-    height: 200px;
-  }
-  .bottom-menu {
-    margin-bottom: 10px;
-  }
-  #url_btn {
-    font-size: 20px;
-    height: 60px;
-  }
-  #music_btn {
-    width: 60px;
-    font-size: 40px;
-  }
-  #title {
-    font-size: 27px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 24px;
-  }
-  #explain {
-    padding: 0 10%;
-  }
-  .avengers div img {
-    width: 250px;
-    height: 250px;
-  }
-}
-
-@media (min-width: 1900px) {
-  .start h1 {
-    font-size: 90px !important;
-  }
-  .start h2 {
-    font-size: 50px !important;
-  }
-  #url_btn {
-    font-size: 25px;
-    height: 75px;
-  }
-  #music_btn {
-    width: 80px;
-    font-size: 60px;
-  }
-  #title {
-    font-size: 30px;
-  }
-  #A,
-  #B,
-  .start_btn {
-    font-size: 27px;
-  }
-  .progress-bar {
-    font-size: 20px;
-  }
-  .avengers div img {
-    width: 300px;
-    height: 300px;
-  }
-}
-
-/* loading animation */
-
-.loading {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.loader,
-.loader:before,
-.loader:after {
-  background: var(--base-color);
-  -webkit-animation: load1 1s infinite ease-in-out;
-  animation: load1 1s infinite ease-in-out;
-  width: 1em;
-  height: 4em;
-}
-.loader {
-  color: var(--base-color);
-  text-indent: -9999em;
-  margin: 88px auto;
-  position: relative;
-  font-size: 11px;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
-}
-.loader:before,
-.loader:after {
-  position: absolute;
-  top: 0;
-  content: "";
-}
-.loader:before {
-  left: -1.5em;
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-.loader:after {
-  left: 1.5em;
-}
-@-webkit-keyframes load1 {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em;
-    height: 5em;
-  }
-}
-@keyframes load1 {
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 0;
-    height: 4em;
-  }
-  40% {
-    box-shadow: 0 -2em;
-    height: 5em;
-  }
 }

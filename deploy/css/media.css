@@ -1,0 +1,510 @@
+/* media query */
+
+@media (max-width: 350px) {
+  .wrapper {
+    padding: 0;
+  }
+  .progress {
+    margin: 10px;
+  }
+  .start,
+  .question {
+    padding: 0 10px;
+  }
+  #img {
+    width: 250px;
+    height: 250px;
+  }
+  #explain {
+    font-size: 16px;
+  }
+  #good-img,
+  #bad-img {
+    width: 120px;
+    height: 120px;
+  }
+  #retry_btn,
+  #avengers_btn,
+  #mission_btn,
+  #font_btn {
+    width: 95%;
+  }
+  .name {
+    font-size: 18px !important;
+  }
+  .chat {
+    width: 95%;
+    margin: 10px auto;
+  }
+  .start h1 {
+    font-size: 40px !important;
+  }
+  .start h2 {
+    font-size: 25px !important;
+  }
+  .avengers div img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  .name {
+    font-size: 22px;
+  }
+  .start h1 {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .my-ad {
+    width: 90%;
+  }
+  .faceshapeai,
+  .nickname {
+    font-size: 25px !important;
+  }
+  .bottom {
+    width: 100%;
+    left: 0;
+  }
+  .avengers div {
+    margin: 10px auto;
+  }
+  #mission {
+    width: 90%;
+  }
+}
+
+@media (max-height: 600px) {
+  #title {
+    font-size: 18px !important;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 16px !important;
+  }
+}
+
+@media (min-height: 600px) {
+  #title {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+
+@media (min-height: 700px) {
+  #title {
+    font-size: 22px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 20px;
+  }
+}
+
+@media (min-height: 800px) {
+  #title {
+    font-size: 24px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 22px;
+  }
+}
+
+@media (min-height: 1000px) {
+  .start h1 {
+    font-size: 100px;
+  }
+  .start h2 {
+    font-size: 50px;
+  }
+  #title {
+    font-size: 30px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 27px;
+  }
+  .progress-bar {
+    font-size: 20px;
+  }
+  #url_btn {
+    font-size: 20px;
+    height: 60px;
+  }
+  #music_btn {
+    width: 60px;
+    font-size: 40px;
+  }
+  .bottom {
+    height: 200px;
+  }
+  .bottom-menu {
+    margin-bottom: 10px;
+  }
+  /* result page */
+  #img {
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+  }
+  .result h2 {
+    font-size: 46px;
+  }
+  #explain {
+    margin-top: 40px;
+    font-size: 24px;
+    line-height: 1.7;
+    padding: 10px 10%;
+  }
+  .result h3 {
+    font-size: 40px;
+    margin: 40px 0;
+  }
+  .result h4 {
+    font-size: 35px;
+  }
+  .avengers div img,
+  #good-img,
+  #bad-img {
+    width: 230px;
+    height: 230px;
+  }
+  #retry_btn,
+  #avengers_btn,
+  #mission_btn,
+  #font_btn {
+    width: 400px;
+    height: 100px;
+    font-size: 28px;
+  }
+  #mission {
+    margin-top: 40px;
+    border: 5px solid var(--point-color);
+  }
+  .ad_banner {
+    margin: 70px auto;
+  }
+  .youtube-icon {
+    width: 50px;
+  }
+  .my-ad {
+    width: 500px;
+    margin: 30px auto;
+  }
+  .my-ad a {
+    height: 70px;
+    font-size: 40px;
+  }
+  .my-ad img {
+    width: 40px;
+    margin-right: 20px;
+  }
+  .chat,
+  .copyright {
+    font-size: 24px;
+  }
+  #mission,
+  .my-ad {
+    width: 75%;
+  }
+}
+
+@media (min-height: 1200px) {
+  #title {
+    font-size: 35px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 32px;
+  }
+  #explain {
+    padding: 10px 15%;
+  }
+  #mission,
+  .my-ad {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bottom {
+    width: 50%;
+    left: calc((100% - 50%) / 2);
+  }
+  .wrapper {
+    width: 50%;
+  }
+}
+
+@media (min-width: 1300px) {
+  #img {
+    width: 300px;
+    height: 300px;
+  }
+  #explain {
+    padding: 10px 10%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .start h1 {
+    font-size: 70px !important;
+  }
+  .start h2 {
+    font-size: 30px !important;
+  }
+  #title {
+    font-size: 24px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 22px;
+  }
+  .progress-bar {
+    font-size: 15px;
+  }
+  /* result page */
+  #img {
+    width: 350px;
+    height: 350px;
+    margin: 40px auto;
+  }
+  .result h2 {
+    font-size: 36px;
+  }
+  #explain {
+    font-size: 20px;
+    margin-top: 30px;
+    line-height: 1.6;
+  }
+  .result h3 {
+    font-size: 32px;
+    margin: 25px 0;
+  }
+  .result h4 {
+    font-size: 26px;
+  }
+  .good-bad {
+    margin-bottom: 30px;
+  }
+  .avengers div img,
+  #good-img,
+  #bad-img {
+    width: 180px;
+    height: 180px;
+  }
+  #retry_btn,
+  #avengers_btn,
+  #mission_btn,
+  #font_btn {
+    width: 350px;
+    height: 80px;
+    font-size: 22px;
+  }
+  .ad_banner {
+    margin: 40px auto;
+  }
+  #mission {
+    margin-top: 30px;
+    border: 4px solid var(--point-color);
+  }
+  #mission h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+  }
+  #mission ul li,
+  #mission h6 {
+    font-size: 25px;
+  }
+  #copy_btn,
+  #chat_btn {
+    font-size: 25px;
+    height: fit-content;
+  }
+  .my-ad {
+    margin: 30px auto;
+  }
+  .chat,
+  .copyright {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .start h1 {
+    font-size: 80px !important;
+  }
+  .start h2 {
+    font-size: 40px !important;
+  }
+  .bottom {
+    height: 200px;
+  }
+  .bottom-menu {
+    margin-bottom: 10px;
+  }
+  #url_btn {
+    font-size: 20px;
+    height: 60px;
+  }
+  #music_btn {
+    width: 60px;
+    font-size: 40px;
+  }
+  #title {
+    font-size: 27px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 24px;
+  }
+  /* result page */
+  #img {
+    width: 380px;
+    height: 380px;
+  }
+  .result h2 {
+    font-size: 38px;
+  }
+  #explain {
+    font-size: 26px;
+  }
+  .result h3 {
+    font-size: 38px;
+    margin: 30px 0;
+  }
+  .result h4 {
+    font-size: 30px;
+  }
+  .good-bad {
+    margin-bottom: 40px;
+  }
+  .avengers div img,
+  #good-img,
+  #bad-img {
+    width: 200px;
+    height: 200px;
+  }
+  #retry_btn,
+  #avengers_btn,
+  #mission_btn,
+  #font_btn {
+    width: 380px;
+    height: 90px;
+    font-size: 25px;
+    margin: 15px auto;
+  }
+  #mission {
+    margin-top: 40px;
+    border: 5px solid var(--point-color);
+  }
+  .ad_banner {
+    margin: 60px auto;
+  }
+  .youtube-icon {
+    width: 50px;
+  }
+  .my-ad {
+    width: 500px;
+    margin: 30px auto;
+  }
+  .my-ad a {
+    height: 70px;
+    font-size: 40px;
+  }
+  .my-ad img {
+    width: 40px;
+    margin-right: 20px;
+  }
+  .chat,
+  .copyright {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1900px) {
+  .start h1 {
+    font-size: 90px !important;
+  }
+  .start h2 {
+    font-size: 50px !important;
+  }
+  #url_btn {
+    font-size: 25px;
+    height: 75px;
+  }
+  #music_btn {
+    width: 80px;
+    font-size: 60px;
+  }
+  #title {
+    font-size: 30px;
+  }
+  #A,
+  #B,
+  .start_btn {
+    font-size: 27px;
+  }
+  .progress-bar {
+    font-size: 20px;
+  }
+  /* result page */
+  #img {
+    width: 400px;
+    height: 400px;
+    margin: 50px auto;
+  }
+  .result h2 {
+    font-size: 46px;
+  }
+  #explain {
+    margin-top: 40px;
+    font-size: 24px;
+    line-height: 1.7;
+  }
+  .result h3 {
+    font-size: 40px;
+    margin: 40px 0;
+  }
+  .result h4 {
+    font-size: 35px;
+  }
+  .avengers div img,
+  #good-img,
+  #bad-img {
+    width: 230px;
+    height: 230px;
+  }
+  #retry_btn,
+  #avengers_btn,
+  #mission_btn,
+  #font_btn {
+    width: 400px;
+    height: 100px;
+    font-size: 28px;
+  }
+  #mission {
+    margin-top: 40px;
+    border: 5px solid var(--point-color);
+  }
+  .ad_banner {
+    margin: 70px auto;
+  }
+}

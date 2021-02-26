@@ -6,7 +6,6 @@ const RIGHT_CN = "right",
   BTN_HOVER_CN = "button-hover",
   OPACITY0_CN = "opacity-0",
   MOBILE_CN = "mobile",
-  LMOBILE_CN = "large-mobile",
   NOTAPPEAR_CN = "notAppear";
 
 const audio = new Audio("https://avengersmbti-files.netlify.app/어벤져스.mp3");
@@ -275,13 +274,13 @@ $("#bad-img").click(() => {
 
 // 댓글 달기 버튼을 눌렀을때
 $("#chat_btn").click(() => {
-  const chat = document.querySelector("#chat");
-  const location = chat.offsetTop;
-  scrollTo({ top: location, behavior: "smooth" });
-
   // 미션 삭제
   const mission = document.querySelector("#mission");
   mission.classList.add(NONE_CN);
+
+  const chat = document.querySelector("#chat");
+  const location = chat.offsetTop;
+  scrollTo({ top: location, behavior: "smooth" });
 });
 
 // 모든 캐릭터 보기 버튼을 눌렀을때
@@ -410,7 +409,10 @@ function handleScroll() {
     missionBtn.addEventListener("click", () => {
       handleMission(missionBtn);
     });
-  } else if (window.scrollY + height >= trigger3.offsetTop && !isTrigger3Used) {
+  } else if (
+    window.scrollY + height >= trigger3.offsetTop + 60 &&
+    !isTrigger3Used
+  ) {
     isTrigger3Used = true;
 
     setAppearTime(
@@ -451,10 +453,9 @@ function handleResize() {
   if (width <= 800 && height >= 1000) {
     $(".wrapper").addClass(MOBILE_CN);
   } else if (width <= 1200 && height >= 1300) {
-    $(".wrapper").addClass(LMOBILE_CN);
+    $(".wrapper").addClass(MOBILE_CN);
   } else {
     $(".wrapper").removeClass(MOBILE_CN);
-    $(".wrapper").removeClass(LMOBILE_CN);
   }
 }
 
