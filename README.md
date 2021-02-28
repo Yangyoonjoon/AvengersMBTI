@@ -1,9 +1,10 @@
 # AvengersMBTI
 
-**어벤져스 MBTI | 어벤져스 테스트
-_https://avengersmbti.netlify.app/_**
+**_[어벤져스 MBTI | 어벤져스 테스트](https://avengersmbti.netlify.app/)_**
 
 Avengers MBTI Test
+
+[제작도움 : 조코딩 유튜브](https://www.youtube.com/channel/UCQNE2JmbasNYbjGAcuBiRRg)
 
 ## 캐릭터 목록
 
